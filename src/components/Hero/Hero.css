@@ -33,9 +33,36 @@
   box-shadow: 0 0 0 4px color-mix(in oklab, var(--success) 22%, transparent);
 }
 .hero__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem 0.45rem 0.7rem;
   font-family: var(--ff-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.04em;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.hero__location:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.hero__location-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.hero__location-flag {
+  font-size: 0.95em;
+  line-height: 1;
 }
 
 .hero__main {

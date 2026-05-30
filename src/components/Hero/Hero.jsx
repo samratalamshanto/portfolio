@@ -55,7 +55,26 @@ export default function Hero() {
           <span className="dot" aria-hidden="true" />
           Available for senior backend roles
         </span>
-        <span className="hero__location">Dhaka, Bangladesh</span>
+        <a
+          className="hero__location"
+          href="https://www.google.com/maps/place/Dhaka"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Based in Dhaka, Bangladesh"
+        >
+          <svg
+            className="hero__location-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"
+              fill="currentColor"
+            />
+          </svg>
+          <span className="hero__location-text">Dhaka, Bangladesh</span>
+          <span className="hero__location-flag" aria-hidden="true">🇧🇩</span>
+        </a>
       </div>
 
       <div className="hero__main">
