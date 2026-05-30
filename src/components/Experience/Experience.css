@@ -8,28 +8,29 @@
 }
 .role:first-child { border-top: none; padding-top: 0; }
 
-/* Logo left, period + company stacked to its right — reads like a card header. */
+/* Date range on top; logo + company/location sit side by side beneath it. */
 .role__meta {
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr);
   grid-template-rows: auto auto;
   column-gap: 0.85rem;
-  row-gap: 0.1rem;
-  align-items: start;
+  row-gap: 0.85rem;
+  align-items: center;
+}
+.role__period {
+  grid-column: 1 / -1;
+  grid-row: 1;
 }
 .role__logo,
 .role__logo-link {
-  grid-row: 1 / span 2;
-  align-self: start;
-}
-.role__period {
-  grid-column: 2;
-  grid-row: 1;
-  margin-bottom: 0.1rem;
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
 }
 .role__company {
   grid-column: 2;
   grid-row: 2;
+  align-self: center;
 }
 .role__period {
   display: inline-flex;
