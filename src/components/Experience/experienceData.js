@@ -4,7 +4,7 @@ export const EXPERIENCE = [
     location: "Dhaka, Bangladesh",
     period: "Jan 2026 — Present",
     title: "Senior Software Engineer",
-    logo: "/assets/logo-bs23.svg",
+    logo: "/assets/logo-bs23.png",
     summary:
       "Building Banglalink's payment service provider (PSP) middleware and Zoober Pay's wallet platform. Day-to-day is Spring Boot, Kafka outbox, Redis idempotency, and a lot of integration contracts.",
     bullets: [
@@ -19,7 +19,7 @@ export const EXPERIENCE = [
     location: "Dhaka, Bangladesh",
     period: "May 2022 — Dec 2025",
     title: "Senior Software Engineer",
-    logo: "/assets/logo-reddigital.svg",
+    logo: "/assets/logo-reddigital.jpeg",
     summary:
       "Telecom-scale backend work for Robi's Nextgen Loyalty platform and Smart Axiata's eCRM. Spring Boot, Kafka, RabbitMQ — built for throughput, fault tolerance, and operational sanity.",
     bullets: [

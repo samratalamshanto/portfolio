@@ -5,7 +5,7 @@ export const EDUCATION = [
     location: "Khulna, Bangladesh",
     period: "2017 — 2022",
     result: "CGPA 3.43 / 4.00",
-    image: "/assets/edu-kuet.jpg",
+    image: "/assets/edu-kuet.png",
   },
   {
     degree: "Higher Secondary Certificate (HSC)",
@@ -13,7 +13,7 @@ export const EDUCATION = [
     location: "Dhaka, Bangladesh",
     period: "2014 — 2016",
     result: "GPA 5.00 / 5.00",
-    image: "/assets/edu-udayan.jpg",
+    image: "/assets/edu-udayan.jpeg",
   },
   {
     degree: "Secondary School Certificate (SSC)",
@@ -21,6 +21,6 @@ export const EDUCATION = [
     location: "Dhaka, Bangladesh",
     period: "2004 — 2014",
     result: "GPA 5.00 / 5.00",
-    image: "/assets/edu-stgregory.jpg",
+    image: "/assets/edu-stgregory.png",
   },
 ];
