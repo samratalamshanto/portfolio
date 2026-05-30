@@ -1,13 +1,12 @@
 .contact .section__header {
-  margin-bottom: 2rem;
+  max-width: none; /* override global 60ch cap so the intro can use full width */
+  margin-bottom: 2.75rem;
 }
 .contact__lede {
-  font-size: var(--text-lede);
-  color: var(--text-dim);
-  margin: 1.25rem 0 0;
-  line-height: 1.6;
-  max-width: 80ch;
-  text-wrap: balance;
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  margin: 1rem 0 0;
+  line-height: 1.65;
 }
 
 .contact__links {
