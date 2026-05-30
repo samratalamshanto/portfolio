@@ -1,4 +1,4 @@
-# samrat-alam-portfolio
+# portfolio
 
 Personal portfolio for **Samrat Alam** — Backend Engineer. Built with Vite + React, plain CSS with design-token theming, and a dark/light theme toggle.
 
@@ -41,15 +41,15 @@ Site URL: `https://samratalam.github.io/`
 
 ### Option B — Project page (subpath URL)
 
-1. Create a GitHub repo named **`samrat-alam-portfolio`**.
+1. Create a GitHub repo named **`portfolio`**.
 2. Push to `main`.
 3. In **Settings → Pages**, set "Source" to **GitHub Actions**.
 4. In **Settings → Secrets and variables → Actions → Variables**, add a repo variable:
    - Name: `VITE_BASE`
-   - Value: `/samrat-alam-portfolio/`
+   - Value: `/portfolio/`
 5. Workflow auto-deploys on push.
 
-Site URL: `https://samratalam.github.io/samrat-alam-portfolio/`
+Site URL: `https://samratalamshanto.github.io/portfolio/`
 
 ## Project structure
 
