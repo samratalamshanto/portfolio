@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Event-Driven E-Commerce Architecture">
+  <defs>
+    <linearGradient id="bgEc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1320"/>
+      <stop offset="100%" stop-color="#161b2e"/>
+    </linearGradient>
+    <linearGradient id="cardEc" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1f2538"/>
+      <stop offset="100%" stop-color="#181d2e"/>
+    </linearGradient>
+    <linearGradient id="kafkaEc" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d4f7a"/>
+      <stop offset="100%" stop-color="#2c3a5c"/>
+    </linearGradient>
+    <marker id="arrEc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6a86c7" opacity="0.85"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgEc)"/>
+
+  <!-- Faint grid -->
+  <g stroke="#2a3148" stroke-width="0.5" opacity="0.3">
+    <path d="M0 100 H800 M0 200 H800 M0 300 H800 M0 400 H800"/>
+    <path d="M100 0 V500 M200 0 V500 M300 0 V500 M400 0 V500 M500 0 V500 M600 0 V500 M700 0 V500"/>
+  </g>
+
+  <!-- Title strip -->
+  <text x="40" y="50" fill="#8597c5" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" letter-spacing="2">EVENT-DRIVEN E-COMMERCE — SAGA + KAFKA</text>
+
+  <!-- API Gateway -->
+  <g transform="translate(310, 80)">
+    <rect width="180" height="48" rx="8" fill="url(#cardEc)" stroke="#3a4664" stroke-width="1"/>
+    <text x="90" y="22" fill="#dde3f5" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle">API Gateway</text>
+    <text x="90" y="38" fill="#8597c5" font-family="ui-monospace, Menlo, monospace" font-size="10" text-anchor="middle">/orders /payments</text>
+  </g>
+
+  <!-- Kafka backbone -->
+  <g transform="translate(150, 240)">
+    <rect width="500" height="58" rx="10" fill="url(#kafkaEc)" stroke="#5a6f9e" stroke-width="1"/>
+    <text x="250" y="28" fill="#eaf0ff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Apache Kafka</text>
+    <text x="250" y="46" fill="#b9c5e3" font-family="ui-monospace, Menlo, monospace" font-size="10" text-anchor="middle">order.created · payment.confirmed · inventory.reserved · shipping.dispatched</text>
+  </g>
+
+  <!-- 4 service cards -->
+  <g font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#dde3f5" text-anchor="middle">
+    <g transform="translate(60, 160)">
+      <rect width="130" height="60" rx="8" fill="url(#cardEc)" stroke="#3a4664" stroke-width="1"/>
+      <text x="65" y="26">Order Service</text>
+      <text x="65" y="46" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#8597c5" font-weight="400">Spring Boot</text>
+    </g>
+    <g transform="translate(225, 160)">
+      <rect width="130" height="60" rx="8" fill="url(#cardEc)" stroke="#3a4664" stroke-width="1"/>
+      <text x="65" y="26">Payment</text>
+      <text x="65" y="46" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#8597c5" font-weight="400">Spring Boot</text>
+    </g>
+    <g transform="translate(445, 160)">
+      <rect width="130" height="60" rx="8" fill="url(#cardEc)" stroke="#3a4664" stroke-width="1"/>
+      <text x="65" y="26">Inventory</text>
+      <text x="65" y="46" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#8597c5" font-weight="400">Spring Boot</text>
+    </g>
+    <g transform="translate(610, 160)">
+      <rect width="130" height="60" rx="8" fill="url(#cardEc)" stroke="#3a4664" stroke-width="1"/>
+      <text x="65" y="26">Shipping</text>
+      <text x="65" y="46" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#8597c5" font-weight="400">Spring Boot</text>
+    </g>
+  </g>
+
+  <!-- Connections (gateway → services) -->
+  <g stroke="#5a6f9e" stroke-width="1.2" fill="none" opacity="0.7">
+    <path d="M375 128 Q200 145 125 160" marker-end="url(#arrEc)"/>
+    <path d="M395 128 Q330 145 290 160" marker-end="url(#arrEc)"/>
+    <path d="M405 128 Q470 145 510 160" marker-end="url(#arrEc)"/>
+    <path d="M425 128 Q600 145 675 160" marker-end="url(#arrEc)"/>
+  </g>
+
+  <!-- Connections (services → kafka) -->
+  <g stroke="#5a6f9e" stroke-width="1.2" stroke-dasharray="4 3" fill="none" opacity="0.65">
+    <path d="M125 220 V240"/>
+    <path d="M290 220 V240"/>
+    <path d="M510 220 V240"/>
+    <path d="M675 220 V240"/>
+  </g>
+
+  <!-- Postgres + Outbox -->
+  <g font-family="Inter, system-ui, sans-serif" font-size="11" fill="#b9c5e3" text-anchor="middle">
+    <g transform="translate(60, 360)">
+      <rect width="200" height="76" rx="8" fill="url(#cardEc)" stroke="#3a4664" stroke-width="1"/>
+      <text x="100" y="28" fill="#dde3f5" font-weight="600" font-size="12">PostgreSQL · Outbox</text>
+      <text x="100" y="50" font-family="ui-monospace, Menlo, monospace" font-size="10">per-service · transactional</text>
+      <text x="100" y="64" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#8597c5">SAGA compensation log</text>
+    </g>
+    <g transform="translate(540, 360)">
+      <rect width="200" height="76" rx="8" fill="url(#cardEc)" stroke="#3a4664" stroke-width="1"/>
+      <text x="100" y="28" fill="#dde3f5" font-weight="600" font-size="12">Resilience4j · Micrometer</text>
+      <text x="100" y="50" font-family="ui-monospace, Menlo, monospace" font-size="10">circuit breaker · retry</text>
+      <text x="100" y="64" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#8597c5">Prometheus metrics</text>
+    </g>
+  </g>
+
+  <text x="760" y="478" fill="#5a6685" font-family="ui-monospace, Menlo, monospace" font-size="9" text-anchor="end" opacity="0.7">// P-01 · architecture sketch</text>
+</svg>

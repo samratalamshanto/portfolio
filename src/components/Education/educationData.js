@@ -5,7 +5,7 @@ export const EDUCATION = [
     location: "Khulna, Bangladesh",
     period: "2017 — 2022",
     result: "CGPA 3.43 / 4.00",
-    image: "/assets/edu-kuet.png",
+    image: "/assets/edu-kuet.svg",
   },
   {
     degree: "Higher Secondary Certificate (HSC)",
