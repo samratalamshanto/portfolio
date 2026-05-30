@@ -1,6 +1,7 @@
 export const EXPERIENCE = [
   {
     company: "Brain Station 23",
+    companyUrl: "https://brainstation-23.com/",
     location: "Dhaka, Bangladesh",
     period: "Jan 2026 — Present",
     title: "Senior Software Engineer",
@@ -16,6 +17,7 @@ export const EXPERIENCE = [
   },
   {
     company: "Red.Digital Limited",
+    companyUrl: "https://www.reddotdigitalit.com/",
     location: "Dhaka, Bangladesh",
     period: "May 2022 — Dec 2025",
     title: "Senior Software Engineer",

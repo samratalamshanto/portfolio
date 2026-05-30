@@ -17,23 +17,51 @@ function renderBullet(text) {
 
 function Role({ role }) {
   const ref = useReveal();
+  const logo = (
+    <span className="role__logo" aria-hidden="true">
+      <img
+        src={asset(role.logo)}
+        alt=""
+        width="64"
+        height="64"
+        onError={(e) => e.currentTarget.classList.add("img--missing")}
+      />
+    </span>
+  );
   return (
     <li className="role reveal" ref={ref}>
       <div className="role__meta">
+        {role.companyUrl ? (
+          <a
+            href={role.companyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="role__logo-link"
+            aria-label={`${role.company} website`}
+          >
+            {logo}
+          </a>
+        ) : (
+          logo
+        )}
+
         <span className="role__period">{role.period}</span>
-        <span className="role__company">
-          <span className="role__logo" aria-hidden="true">
-            <img
-              src={asset(role.logo)}
-              alt=""
-              width="44"
-              height="44"
-              onError={(e) => e.currentTarget.classList.add("img--missing")}
-            />
-          </span>
-          {role.company}
+
+        <div className="role__company">
+          {role.companyUrl ? (
+            <a
+              href={role.companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="role__company-link"
+            >
+              {role.company}
+            </a>
+          ) : (
+            <span>{role.company}</span>
+          )}
           <small>{role.location}</small>
-        </span>
+        </div>
       </div>
 
       <div className="role__body">

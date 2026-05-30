@@ -44,9 +44,9 @@
 
 .hero__main {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: clamp(2rem, 3vw, 4.5rem);
-  align-items: center;
+  align-items: start;
 }
 
 .hero__eyebrow {
@@ -142,7 +142,9 @@
 .hero__portrait {
   justify-self: end;
   margin: 0;
-  width: min(100%, 340px);
+  width: min(100%, 380px);
+  position: sticky;
+  top: calc(64px + 1rem); /* sits below the sticky header on scroll */
 }
 .portrait-frame {
   position: relative;
@@ -152,6 +154,22 @@
   border-radius: var(--radius);
   overflow: hidden;
   isolation: isolate;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 18%, transparent),
+    0 20px 50px -25px color-mix(in oklab, var(--accent) 45%, transparent);
+}
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--accent) 35%, transparent),
+    transparent 45%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
 }
 .portrait-frame::after {
   content: "";
@@ -159,10 +177,11 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    color-mix(in oklab, var(--bg) 30%, transparent) 0%,
-    transparent 35%
+    color-mix(in oklab, var(--bg) 35%, transparent) 0%,
+    transparent 40%
   );
   pointer-events: none;
+  z-index: 1;
 }
 .portrait-frame img {
   width: 100%;
@@ -178,6 +197,7 @@
     justify-self: start;
     width: min(220px, 60%);
     order: -1;
+    position: static;
   }
   .hero__title { max-width: none; }
 }
