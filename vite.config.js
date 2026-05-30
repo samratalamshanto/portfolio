@@ -6,5 +6,5 @@ import react from "@vitejs/plugin-react";
 // Override at build time:  VITE_BASE=/samrat-alam-portfolio/ npm run build
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VITE_BASE ?? "/",
+  base: process.env.VITE_BASE ?? "/samrat-alam-portfolio/",
 });

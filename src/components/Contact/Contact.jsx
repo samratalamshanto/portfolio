@@ -5,7 +5,7 @@ const LINKS = [
   { label: "Email", value: "samratalam21@gmail.com", href: "mailto:samratalam21@gmail.com" },
   { label: "Phone", value: "+880 1833 183699", href: "tel:+8801833183699" },
   { label: "LinkedIn", value: "linkedin.com/in/samrat-alam", href: "https://www.linkedin.com/in/samrat-alam" },
-  { label: "GitHub", value: "github.com/samratalam", href: "https://github.com/samratalam" },
+  { label: "GitHub", value: "github.com/samratalamshanto", href: "https://github.com/samratalamshanto" },
 ];
 
 export default function Contact() {
