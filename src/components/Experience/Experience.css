@@ -48,11 +48,12 @@
 .role__logo img { width: 70%; height: 70%; object-fit: contain; }
 
 .role__title {
-  font-family: var(--ff-serif);
+  font-family: var(--ff-sans);
   font-size: var(--text-h3);
-  font-weight: 500;
+  font-weight: 600;
   margin: 0 0 0.5rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 .role__summary {
   color: var(--text-dim);

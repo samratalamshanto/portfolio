@@ -62,9 +62,9 @@ export default function Experience() {
       aria-labelledby="experience-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">02 — Experience</span>
+        <span className="section__index">02 / Experience</span>
         <h2 id="experience-heading" className="section__title">
-          Where the work has happened.
+          Experience
         </h2>
       </header>
 

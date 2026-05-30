@@ -3,11 +3,11 @@ import { useTheme } from "../../contexts/ThemeContext.jsx";
 import "./Header.css";
 
 const NAV = [
-  { href: "#about", num: "01", label: "about" },
-  { href: "#experience", num: "02", label: "experience" },
-  { href: "#skills", num: "03", label: "stack" },
-  { href: "#projects", num: "04", label: "projects" },
-  { href: "#publications", num: "05", label: "writing" },
+  { href: "#about", num: "01", label: "About" },
+  { href: "#experience", num: "02", label: "Experience" },
+  { href: "#skills", num: "03", label: "Skills" },
+  { href: "#projects", num: "04", label: "Projects" },
+  { href: "#publications", num: "05", label: "Publications" },
 ];
 
 export default function Header() {
@@ -24,10 +24,8 @@ export default function Header() {
     <header className="site-header">
       <div className="container site-header__inner">
         <a href="#" className="brand" aria-label="Samrat Alam, home">
-          <span className="brand__mark" aria-hidden="true">~/</span>
-          <span className="brand__name">
-            samrat<span className="brand__cursor" aria-hidden="true">_</span>
-          </span>
+          <span className="brand__mark" aria-hidden="true">SA</span>
+          <span className="brand__name">Samrat Alam</span>
         </a>
 
         <nav
@@ -36,7 +34,7 @@ export default function Header() {
         >
           {NAV.map((item) => (
             <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
-              <span aria-hidden="true">{item.num}.</span> {item.label}
+              <span aria-hidden="true">{item.num}</span> {item.label}
             </a>
           ))}
           <a
@@ -44,7 +42,7 @@ export default function Header() {
             className="site-nav__cta"
             onClick={() => setOpen(false)}
           >
-            contact()
+            Contact
           </a>
         </nav>
 

@@ -10,15 +10,6 @@
   border-radius: var(--radius);
   position: relative;
 }
-.split::before {
-  content: "$";
-  position: absolute;
-  top: 1rem;
-  right: 1.25rem;
-  font-family: var(--ff-mono);
-  color: var(--accent);
-  font-size: var(--text-sm);
-}
 .split .section__index { margin-bottom: 0.5rem; }
 .split__meta {
   color: var(--text-dim);

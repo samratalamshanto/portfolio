@@ -9,37 +9,37 @@ const LINKS = [
 ];
 
 export default function Contact() {
-  const ref = useReveal();
+  const headerRef = useReveal();
+  const linksRef = useReveal();
+
   return (
-    <section id="contact" className="contact" aria-labelledby="contact-heading">
-      <div className="container contact__inner reveal" ref={ref}>
-        <span className="section__index section__index--light">
-          08 — Get in touch
-        </span>
-        <h2 id="contact-heading" className="contact__title">
-          Have a hard backend problem?
-          <span>Let's talk about it.</span>
+    <section id="contact" className="section contact container" aria-labelledby="contact-heading">
+      <header className="section__header reveal" ref={headerRef}>
+        <span className="section__index">08 / Contact</span>
+        <h2 id="contact-heading" className="section__title">
+          Get in touch
         </h2>
         <p className="contact__lede">
           I'm most interested in payment systems, distributed reliability, and
-          the messy integration work that sits between them.
+          the integration work that sits between them. Best reached by email.
         </p>
+      </header>
 
-        <ul className="contact__links" role="list">
-          {LINKS.map((l) => (
-            <li key={l.label}>
-              <a
-                href={l.href}
-                target={l.href.startsWith("http") ? "_blank" : undefined}
-                rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              >
-                <span>{l.label}</span>
-                <strong>{l.value}</strong>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="contact__links reveal" role="list" ref={linksRef}>
+        {LINKS.map((l) => (
+          <li key={l.label}>
+            <a
+              href={l.href}
+              target={l.href.startsWith("http") ? "_blank" : undefined}
+              rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            >
+              <span>{l.label}</span>
+              <strong>{l.value}</strong>
+              <span className="contact__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

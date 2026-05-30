@@ -8,7 +8,7 @@ export default function Background() {
   return (
     <section className="section section--split container" aria-label="Background">
       <div className="split reveal" ref={educationRef}>
-        <span className="section__index">06 — Education</span>
+        <span className="section__index">06 / Education</span>
         <h2 className="section__title section__title--sm">
           Khulna University of Engineering &amp; Technology
         </h2>
@@ -17,9 +17,9 @@ export default function Background() {
       </div>
 
       <div className="split reveal" ref={cpRef}>
-        <span className="section__index">07 — Competitive programming</span>
+        <span className="section__index">07 / Competitive programming</span>
         <h2 className="section__title section__title--sm">
-          600+ problems, and counting.
+          600+ problems solved
         </h2>
         <ul className="cp-list">
           <li>

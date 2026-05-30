@@ -19,14 +19,10 @@
   font-family: var(--ff-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: var(--accent);
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   font-weight: 500;
-}
-.skill-card h3::before {
-  content: "# ";
-  color: var(--comment);
 }
 .skill-card ul { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .skill-card li {

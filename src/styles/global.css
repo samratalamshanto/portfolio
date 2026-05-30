@@ -64,26 +64,36 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   max-width: 60ch;
 }
 .section__index {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: var(--ff-mono);
   font-size: var(--text-eyebrow);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+.section__index::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
 }
 .section__title {
-  font-family: var(--ff-serif);
+  font-family: var(--ff-sans);
   font-size: var(--text-h2);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  font-weight: 600;
   margin: 0;
   color: var(--text);
 }
 .section__title--sm {
   font-size: var(--text-h2-sm);
-  line-height: 1.15;
+  line-height: 1.2;
+  font-weight: 600;
 }
 
 /* Reveal-on-scroll */

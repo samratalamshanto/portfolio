@@ -17,7 +17,7 @@ function ProjectCard({ project, flip }) {
         />
       </div>
       <div className="project__body">
-        <span className="project__index">{project.index}</span>
+        <span className="project__index">{project.index} — Project</span>
         <h3>{project.title}</h3>
         <p>{project.summary}</p>
         <ul className="project__tags">
@@ -47,9 +47,9 @@ export default function Projects() {
       aria-labelledby="projects-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">04 — Selected projects</span>
+        <span className="section__index">04 / Projects</span>
         <h2 id="projects-heading" className="section__title">
-          A few things I've built outside of work hours.
+          Selected projects
         </h2>
       </header>
 

@@ -28,9 +28,9 @@ export default function Skills() {
       aria-labelledby="skills-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">03 — Stack</span>
+        <span className="section__index">03 / Stack</span>
         <h2 id="skills-heading" className="section__title">
-          Tools I actually ship with.
+          Technical skills
         </h2>
       </header>
 

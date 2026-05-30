@@ -3,7 +3,7 @@
   top: 0;
   z-index: 50;
   backdrop-filter: blur(14px);
-  background: color-mix(in oklab, var(--bg) 78%, transparent);
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
   border-bottom: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
 }
 
@@ -17,45 +17,53 @@
 
 .brand {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  font-family: var(--ff-mono);
-  font-weight: 500;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 600;
   font-size: 0.95rem;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.005em;
+  color: var(--text);
 }
-.brand__mark { color: var(--accent); }
-.brand__name { color: var(--text); }
-.brand__cursor {
-  display: inline-block;
-  width: 0.55ch;
-  color: var(--accent);
-  animation: blink 1.2s steps(2, end) infinite;
+.brand__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--ff-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
-@keyframes blink { 50% { opacity: 0; } }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.6rem;
-  font-family: var(--ff-mono);
+  gap: 1.75rem;
   font-size: var(--text-sm);
+  font-weight: 500;
 }
 .site-nav a {
   color: var(--text-dim);
   transition: color var(--dur-fast) var(--ease);
 }
 .site-nav a span {
-  color: var(--text-faint);
-  margin-right: 0.25rem;
+  font-family: var(--ff-mono);
+  color: var(--accent);
+  margin-right: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 500;
 }
 .site-nav a:hover,
-.site-nav a:focus-visible { color: var(--accent); }
+.site-nav a:focus-visible { color: var(--text); }
 .site-nav__cta {
   color: var(--text) !important;
-  padding: 0.5rem 0.9rem;
+  padding: 0.55rem 1.1rem;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 8px;
+  font-weight: 500;
   transition: all var(--dur-fast) var(--ease);
 }
 .site-nav__cta:hover {
@@ -76,15 +84,15 @@
   display: inline-grid;
   place-items: center;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 8px;
   color: var(--text-dim);
   transition: all var(--dur-fast) var(--ease);
   position: relative;
 }
 .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
 .theme-toggle__icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   position: absolute;
   transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
@@ -98,7 +106,7 @@
   width: 38px;
   height: 38px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 8px;
   flex-direction: column;
   align-items: center;
   justify-content: center;

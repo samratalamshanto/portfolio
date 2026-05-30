@@ -4,15 +4,15 @@ import "./Hero.css";
 
 const TITLES = [
   "Backend Engineer",
-  "Distributed systems",
-  "Payment middleware",
-  "Event-driven architect",
+  "Distributed Systems",
+  "Payment Middleware",
+  "Event-Driven Architect",
 ];
 
-function useTypewriter(words, { typeMs = 80, deleteMs = 50, pauseMs = 1400 } = {}) {
+function useTypewriter(words, { typeMs = 80, deleteMs = 50, pauseMs = 1600 } = {}) {
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
-  const [phase, setPhase] = useState("type"); // type | hold | delete
+  const [phase, setPhase] = useState("type");
 
   useEffect(() => {
     let id;
@@ -51,43 +51,45 @@ export default function Hero() {
       <div className="hero__meta reveal" ref={metaRef}>
         <span className="kicker">
           <span className="dot" aria-hidden="true" />
-          <span aria-hidden="true">$&nbsp;</span>status — available for senior backend roles
+          Available for senior backend roles
         </span>
-        <span className="hero__location">
-          <span aria-hidden="true">// </span>Dhaka, Bangladesh
-        </span>
+        <span className="hero__location">Dhaka, Bangladesh</span>
       </div>
 
       <div className="hero__main">
         <div className="hero__copy">
+          <p className="hero__eyebrow">Samrat Alam</p>
           <h1 id="hero-heading" className="hero__title reveal" ref={titleRef}>
-            <span className="hero__line">Hi, I'm <em>Samrat Alam</em>.</span>
-            <span className="hero__line hero__line--alt">
-              I build resilient backends for
-            </span>
-            <span className="hero__line">FinTech &amp; Telecom.</span>
+            Senior Backend Engineer building
+            <br />
+            resilient systems for{" "}
+            <span className="hero__title-accent">FinTech &amp; Telecom</span>.
           </h1>
 
-          <div className="hero__typer" aria-live="polite" aria-atomic="true">
-            <span className="hero__typer-prompt" aria-hidden="true">&gt;_</span>
+          <div
+            className="hero__typer"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             <span className="hero__typer-text">{typed}</span>
-            <span className="hero__typer-caret" aria-hidden="true">|</span>
+            <span className="hero__typer-caret" aria-hidden="true" />
           </div>
 
           <div className="hero__body reveal" ref={bodyRef}>
             <p className="hero__lede">
               4.5+ years designing distributed payment middleware, event-driven
-              services, and high-throughput microservices that serve millions
-              of users. Java, Spring Boot, Kafka, and a strong bias for
+              services, and high-throughput microservices serving millions of
+              users. Java, Spring Boot, Kafka — with a strong bias for
               idempotency, observability, and clean integration boundaries.
             </p>
 
             <div className="hero__actions">
               <a className="btn btn--primary" href="#projects">
-                See selected work <span aria-hidden="true">→</span>
+                View projects
+                <span aria-hidden="true">→</span>
               </a>
-              <a className="btn btn--ghost" href="mailto:samratalam21@gmail.com">
-                samratalam21@gmail.com
+              <a className="btn btn--ghost" href="#contact">
+                Get in touch
               </a>
             </div>
           </div>
@@ -104,10 +106,6 @@ export default function Hero() {
               fetchPriority="high"
               onError={(e) => e.currentTarget.classList.add("img--missing")}
             />
-            <span className="portrait-frame__badge" aria-hidden="true">
-              <span>since</span>
-              <strong>2021</strong>
-            </span>
           </div>
         </figure>
       </div>

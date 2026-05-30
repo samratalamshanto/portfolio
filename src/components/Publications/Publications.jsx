@@ -24,9 +24,9 @@ export default function Publications() {
       aria-labelledby="publications-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">05 — Publications</span>
+        <span className="section__index">05 / Research</span>
         <h2 id="publications-heading" className="section__title">
-          Earlier research, from university.
+          Publications
         </h2>
       </header>
 

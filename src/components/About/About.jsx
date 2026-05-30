@@ -15,9 +15,9 @@ export default function About() {
   return (
     <section id="about" className="section about container" aria-labelledby="about-heading">
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">01 — About</span>
+        <span className="section__index">01 / About</span>
         <h2 id="about-heading" className="section__title">
-          I build the boring parts that have to be right.
+          About
         </h2>
       </header>
 
