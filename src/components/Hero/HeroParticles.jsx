@@ -5,16 +5,25 @@ const COUNT = 42;
 const MAX_DIST = 130;
 const SPEED = 0.18;
 
+// Read --accent-rgb (space-separated "r g b") from CSS tokens. We avoid
+// reading --accent itself because modern browsers may return it as the
+// original oklch(...) string, which we cannot parse.
+function readAccent() {
+  const raw = getComputedStyle(document.documentElement)
+    .getPropertyValue("--accent-rgb")
+    .trim();
+  if (!raw) return "116, 156, 220";
+  // Normalise "116 156 220" -> "116, 156, 220" for legacy rgba() syntax.
+  return raw.replace(/\s+/g, ", ");
+}
+
 export default function HeroParticles() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = canvas.getContext("2d");
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -23,22 +32,7 @@ export default function HeroParticles() {
     let raf = 0;
     let running = true;
     let observerActive = true;
-
-    const accentRgb = () => {
-      const probe = document.createElement("span");
-      probe.style.color = getComputedStyle(document.documentElement)
-        .getPropertyValue("--accent")
-        .trim() || "rgb(120, 160, 230)";
-      document.body.appendChild(probe);
-      const rgb = getComputedStyle(probe).color;
-      document.body.removeChild(probe);
-      const match = rgb.match(/\d+(\.\d+)?/g);
-      return match
-        ? `${match[0]}, ${match[1]}, ${match[2]}`
-        : "120, 160, 230";
-    };
-
-    let accent = accentRgb();
+    let accent = readAccent();
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -61,21 +55,17 @@ export default function HeroParticles() {
       if (!running) return;
       ctx.clearRect(0, 0, w, h);
 
-      // Update + draw nodes
       for (const p of particles) {
         p.x += p.vx / w;
         p.y += p.vy / h;
         if (p.x < 0 || p.x > 1) p.vx *= -1;
         if (p.y < 0 || p.y > 1) p.vy *= -1;
-        const x = p.x * w;
-        const y = p.y * h;
         ctx.fillStyle = `rgba(${accent}, 0.55)`;
         ctx.beginPath();
-        ctx.arc(x, y, p.r, 0, Math.PI * 2);
+        ctx.arc(p.x * w, p.y * h, p.r, 0, Math.PI * 2);
         ctx.fill();
       }
 
-      // Connect nearby pairs
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const a = particles[i];
@@ -130,9 +120,8 @@ export default function HeroParticles() {
     );
     io.observe(canvas);
 
-    // Re-read accent when theme changes
     const themeObserver = new MutationObserver(() => {
-      accent = accentRgb();
+      accent = readAccent();
     });
     themeObserver.observe(document.documentElement, {
       attributes: true,
@@ -148,11 +137,5 @@ export default function HeroParticles() {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="hero-particles"
-      aria-hidden="true"
-    />
-  );
+  return <canvas ref={canvasRef} className="hero-particles" aria-hidden="true" />;
 }

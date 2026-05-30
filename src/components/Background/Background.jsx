@@ -13,7 +13,7 @@ export default function Background({ index }) {
 
   return (
     <section
-      id="cp"
+      id="background"
       className="section background container"
       aria-labelledby="cp-heading"
     >

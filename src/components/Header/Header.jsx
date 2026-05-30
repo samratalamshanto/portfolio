@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "../../contexts/ThemeContext.jsx";
+import sections from "../../data/sections.json";
 import "./Header.css";
 
-const NAV = [
-  { href: "#about", num: "01", label: "About" },
-  { href: "#experience", num: "02", label: "Experience" },
-  { href: "#skills", num: "03", label: "Skills" },
-  { href: "#projects", num: "04", label: "Projects" },
-  { href: "#publications", num: "05", label: "Publications" },
-];
+// Build the nav from the same source of truth used in App.jsx. Contact is
+// rendered as the trailing CTA, so it's filtered out of the regular nav.
+const NAV = sections
+  .filter((s) => s.key !== "contact")
+  .map((s, i) => ({
+    href: `#${s.key}`,
+    num: String(i + 1).padStart(2, "0"),
+    label: s.name,
+  }));
 
 export default function Header() {
   const { theme, toggle } = useTheme();

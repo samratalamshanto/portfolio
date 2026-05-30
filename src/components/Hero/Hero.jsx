@@ -70,14 +70,14 @@ export default function Hero() {
             <span className="hero__title-accent">FinTech &amp; Telecom</span>.
           </h1>
 
-          <div
-            className="hero__typer"
-            aria-live="polite"
-            aria-atomic="true"
-          >
+          <div className="hero__typer" aria-hidden="true">
             <span className="hero__typer-text">{typed}</span>
-            <span className="hero__typer-caret" aria-hidden="true" />
+            <span className="hero__typer-caret" />
           </div>
+          <span className="visually-hidden">
+            Roles: Backend Engineer, distributed systems, payment middleware,
+            event-driven architect.
+          </span>
 
           <div className="hero__body reveal" ref={bodyRef}>
             <p className="hero__lede">

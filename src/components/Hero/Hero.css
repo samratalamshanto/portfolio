@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  padding-top: clamp(3rem, 2.5rem + 4vw, 6rem);
-  padding-bottom: clamp(3rem, 2.5rem + 4vw, 5.5rem);
+  padding-top: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+  padding-bottom: clamp(2rem, 1.75rem + 2.5vw, 4rem);
 }
 .hero > *:not(.hero-particles) {
   position: relative;
