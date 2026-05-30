@@ -14,7 +14,7 @@ export default function About({ index }) {
   const FACTS = [
     { dt: "Currently", dd: currentRole() },
     { dt: "Focus", dd: "Payment middleware · Event-driven systems · Distributed reliability" },
-    { dt: "Stack", dd: "Java 17 · Spring Boot · Kafka · PostgreSQL · Redis · APISIX" },
+    { dt: "Stack", dd: "Java · Spring Boot · Kafka · PostgreSQL · Redis · APISIX" },
     { dt: "Based in", dd: "Dhaka, Bangladesh — open to remote" },
   ];
   const headerRef = useReveal();
