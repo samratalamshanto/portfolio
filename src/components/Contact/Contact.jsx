@@ -20,8 +20,9 @@ export default function Contact({ index }) {
           Get in touch
         </h2>
         <p className="contact__lede">
-          I'm most interested in payment systems, distributed reliability, and
-          the integration work that sits between them. Best reached by email.
+          I work on payment systems, distributed reliability, and the
+          integration layer that connects them. Email is the best way to reach
+          me.
         </p>
       </header>
 
