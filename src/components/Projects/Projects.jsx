@@ -39,7 +39,7 @@ function ProjectCard({ project, flip }) {
   );
 }
 
-export default function Projects() {
+export default function Projects({ index }) {
   const headerRef = useReveal();
   return (
     <section
@@ -48,7 +48,7 @@ export default function Projects() {
       aria-labelledby="projects-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">04 / Projects</span>
+        <span className="section__index">{index}</span>
         <h2 id="projects-heading" className="section__title">
           Selected projects
         </h2>

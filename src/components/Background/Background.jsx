@@ -7,7 +7,7 @@ const PLATFORMS = [
   { label: "CSES", href: "https://cses.fi/user/183254" },
 ];
 
-export default function Background() {
+export default function Background({ index }) {
   const headerRef = useReveal();
   const cardRef = useReveal();
 
@@ -18,7 +18,7 @@ export default function Background() {
       aria-labelledby="cp-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">07 / Practice</span>
+        <span className="section__index">{index}</span>
         <h2 id="cp-heading" className="section__title">
           Competitive programming
         </h2>

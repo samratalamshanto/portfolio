@@ -11,6 +11,22 @@ import Background from "./components/Background/Background.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 
+// Single source of truth for the indexed section order shown in section
+// eyebrows (e.g. "03 / Stack"). Reorder / add / remove here — every
+// component's index updates automatically.
+const SECTIONS = [
+  { key: "about", Component: About, name: "About" },
+  { key: "experience", Component: Experience, name: "Experience" },
+  { key: "skills", Component: Skills, name: "Stack" },
+  { key: "projects", Component: Projects, name: "Projects" },
+  { key: "publications", Component: Publications, name: "Research" },
+  { key: "education", Component: Education, name: "Education" },
+  { key: "background", Component: Background, name: "Practice" },
+  { key: "contact", Component: Contact, name: "Contact" },
+];
+
+const formatIndex = (n, name) => `${String(n).padStart(2, "0")} / ${name}`;
+
 export default function App() {
   return (
     <>
@@ -19,14 +35,9 @@ export default function App() {
       <main id="main">
         <Hero />
         <Stats />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Publications />
-        <Education />
-        <Background />
-        <Contact />
+        {SECTIONS.map(({ key, Component, name }, i) => (
+          <Component key={key} index={formatIndex(i + 1, name)} />
+        ))}
       </main>
       <Footer />
     </>

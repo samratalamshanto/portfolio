@@ -19,7 +19,7 @@ function SkillCard({ group }) {
   );
 }
 
-export default function Skills() {
+export default function Skills({ index }) {
   const headerRef = useReveal();
   return (
     <section
@@ -28,7 +28,7 @@ export default function Skills() {
       aria-labelledby="skills-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">03 / Stack</span>
+        <span className="section__index">{index}</span>
         <h2 id="skills-heading" className="section__title">
           Technical skills
         </h2>

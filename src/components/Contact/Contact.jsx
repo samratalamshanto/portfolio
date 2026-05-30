@@ -8,14 +8,14 @@ const LINKS = [
   { label: "GitHub", value: "github.com/samratalamshanto", href: "https://github.com/samratalamshanto" },
 ];
 
-export default function Contact() {
+export default function Contact({ index }) {
   const headerRef = useReveal();
   const linksRef = useReveal();
 
   return (
     <section id="contact" className="section contact container" aria-labelledby="contact-heading">
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">08 / Contact</span>
+        <span className="section__index">{index}</span>
         <h2 id="contact-heading" className="section__title">
           Get in touch
         </h2>

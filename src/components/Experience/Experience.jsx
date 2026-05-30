@@ -54,7 +54,7 @@ function Role({ role }) {
   );
 }
 
-export default function Experience() {
+export default function Experience({ index }) {
   const headerRef = useReveal();
   return (
     <section
@@ -63,7 +63,7 @@ export default function Experience() {
       aria-labelledby="experience-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">02 / Experience</span>
+        <span className="section__index">{index}</span>
         <h2 id="experience-heading" className="section__title">
           Experience
         </h2>

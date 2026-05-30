@@ -10,7 +10,7 @@ function currentRole() {
   return `${r.title} — ${r.company}`;
 }
 
-export default function About() {
+export default function About({ index }) {
   const FACTS = [
     { dt: "Currently", dd: currentRole() },
     { dt: "Focus", dd: "Payment middleware · Event-driven systems · Distributed reliability" },
@@ -23,7 +23,7 @@ export default function About() {
   return (
     <section id="about" className="section about container" aria-labelledby="about-heading">
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">01 / About</span>
+        <span className="section__index">{index}</span>
         <h2 id="about-heading" className="section__title">
           About
         </h2>

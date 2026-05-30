@@ -30,7 +30,7 @@ function EducationCard({ entry }) {
   );
 }
 
-export default function Education() {
+export default function Education({ index }) {
   const headerRef = useReveal();
   return (
     <section
@@ -39,7 +39,7 @@ export default function Education() {
       aria-labelledby="education-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">06 / Education</span>
+        <span className="section__index">{index}</span>
         <h2 id="education-heading" className="section__title">
           Education
         </h2>

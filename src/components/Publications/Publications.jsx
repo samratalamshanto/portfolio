@@ -25,7 +25,7 @@ function Paper({ paper }) {
   );
 }
 
-export default function Publications() {
+export default function Publications({ index }) {
   const headerRef = useReveal();
   return (
     <section
@@ -34,7 +34,7 @@ export default function Publications() {
       aria-labelledby="publications-heading"
     >
       <header className="section__header reveal" ref={headerRef}>
-        <span className="section__index">05 / Research</span>
+        <span className="section__index">{index}</span>
         <h2 id="publications-heading" className="section__title">
           Publications
         </h2>
