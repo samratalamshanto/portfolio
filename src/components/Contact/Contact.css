@@ -89,7 +89,5 @@
 
 @media (max-width: 600px) {
   .contact__links { grid-template-columns: 1fr; }
-  .contact__cta { flex-direction: column; align-items: stretch; }
-  .contact__cta-actions { width: 100%; }
-  .contact__cta-actions .btn { flex: 1; justify-content: center; }
+  .contact__cta { flex-direction: column; align-items: flex-start; }
 }
