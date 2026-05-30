@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useReveal } from "../../hooks/useReveal.js";
 import { asset } from "../../utils/asset.js";
+import { yearsPlus } from "../../utils/experience.js";
 import HeroParticles from "./HeroParticles.jsx";
 import "./Hero.css";
 
@@ -80,10 +81,10 @@ export default function Hero() {
 
           <div className="hero__body reveal" ref={bodyRef}>
             <p className="hero__lede">
-              4.5+ years designing distributed payment middleware, event-driven
-              services, and high-throughput microservices serving millions of
-              users. Java, Spring Boot, Kafka — with a strong bias for
-              idempotency, observability, and clean integration boundaries.
+              {yearsPlus()} years designing distributed payment middleware,
+              event-driven services, and high-throughput microservices serving
+              millions of users. Java, Spring Boot, Kafka — with a strong bias
+              for idempotency, observability, and clean integration boundaries.
             </p>
 
             <div className="hero__actions">
