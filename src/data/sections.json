@@ -1,0 +1,10 @@
+[
+  { "key": "about",        "name": "About" },
+  { "key": "experience",   "name": "Experience" },
+  { "key": "skills",       "name": "Stack" },
+  { "key": "projects",     "name": "Projects" },
+  { "key": "publications", "name": "Research" },
+  { "key": "education",    "name": "Education" },
+  { "key": "background",   "name": "Practice" },
+  { "key": "contact",      "name": "Contact" }
+]

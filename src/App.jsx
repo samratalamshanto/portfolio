@@ -11,19 +11,22 @@ import Background from "./components/Background/Background.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 
-// Single source of truth for the indexed section order shown in section
-// eyebrows (e.g. "03 / Stack"). Reorder / add / remove here — every
-// component's index updates automatically.
-const SECTIONS = [
-  { key: "about", Component: About, name: "About" },
-  { key: "experience", Component: Experience, name: "Experience" },
-  { key: "skills", Component: Skills, name: "Stack" },
-  { key: "projects", Component: Projects, name: "Projects" },
-  { key: "publications", Component: Publications, name: "Research" },
-  { key: "education", Component: Education, name: "Education" },
-  { key: "background", Component: Background, name: "Practice" },
-  { key: "contact", Component: Contact, name: "Contact" },
-];
+// Order + names live in this JSON. Reorder / rename / disable a section by
+// editing src/data/sections.json — App.jsx itself stays untouched.
+import sections from "./data/sections.json";
+
+// Map a sections.json `key` to its component. Add an entry here when you
+// introduce a NEW section file; for ordering / labels only, edit sections.json.
+const COMPONENT_BY_KEY = {
+  about: About,
+  experience: Experience,
+  skills: Skills,
+  projects: Projects,
+  publications: Publications,
+  education: Education,
+  background: Background,
+  contact: Contact,
+};
 
 const formatIndex = (n, name) => `${String(n).padStart(2, "0")} / ${name}`;
 
@@ -35,9 +38,14 @@ export default function App() {
       <main id="main">
         <Hero />
         <Stats />
-        {SECTIONS.map(({ key, Component, name }, i) => (
-          <Component key={key} index={formatIndex(i + 1, name)} />
-        ))}
+        {sections.map(({ key, name }, i) => {
+          const Component = COMPONENT_BY_KEY[key];
+          if (!Component) {
+            console.warn(`[sections.json] No component registered for key "${key}"`);
+            return null;
+          }
+          return <Component key={key} index={formatIndex(i + 1, name)} />;
+        })}
       </main>
       <Footer />
     </>
