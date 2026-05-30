@@ -5,6 +5,7 @@
   gap: clamp(1.5rem, 2.5vw, 3rem);
   padding-block: clamp(1.75rem, 1.5vw + 1.25rem, 2.5rem);
   border-top: 1px dashed var(--border);
+  align-items: start;
 }
 .role:first-child { border-top: none; padding-top: 0; }
 
