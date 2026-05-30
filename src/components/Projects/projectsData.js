@@ -8,7 +8,7 @@ const RAW_PROJECTS = [
   {
     title: "Event-Driven E-Commerce Platform",
     summary:
-      "SAGA-based distributed transactions, Kafka-driven async communication, API Gateway routing, and fault-tolerant microservices — modelled on the kind of resilience needed at payment-scale.",
+      "Order, payment, and inventory services coordinated through a SAGA so a failure at any step compensates instead of leaving money or stock in limbo. Services talk over Kafka rather than direct calls, an API Gateway fronts routing, and Resilience4j circuit breakers contain downstream failures — modelled on the resilience a payment system actually needs.",
     tags: ["Spring Boot", "Kafka", "Docker", "Resilience4j", "Micrometer"],
     image: "/assets/project-ecommerce.svg",
     link: "https://github.com/samratalamshanto/e-commerce-website-microservice-docker",
