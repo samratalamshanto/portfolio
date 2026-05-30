@@ -3,16 +3,29 @@ import { asset } from "../../utils/asset.js";
 import { EXPERIENCE } from "./experienceData.js";
 import "./Experience.css";
 
-// Render simple **bold** segments — local-only, no external markdown lib.
+// Render simple **bold** and [label](url) segments — local-only, no markdown lib.
 function renderBullet(text) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
-  return parts.map((p, i) =>
-    p.startsWith("**") && p.endsWith("**") ? (
-      <strong key={i}>{p.slice(2, -2)}</strong>
-    ) : (
-      <span key={i}>{p}</span>
-    )
-  );
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((p, i) => {
+    if (p.startsWith("**") && p.endsWith("**")) {
+      return <strong key={i}>{p.slice(2, -2)}</strong>;
+    }
+    const link = p.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      return (
+        <a
+          key={i}
+          className="role__link"
+          href={link[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {link[1]}
+        </a>
+      );
+    }
+    return <span key={i}>{p}</span>;
+  });
 }
 
 function Role({ role }) {

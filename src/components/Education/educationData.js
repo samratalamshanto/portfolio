@@ -2,6 +2,7 @@ export const EDUCATION = [
   {
     degree: "B.Sc. in Computer Science and Engineering",
     institution: "Khulna University of Engineering & Technology",
+    institutionUrl: "https://www.kuet.ac.bd/",
     location: "Khulna, Bangladesh",
     period: "2017 — 2022",
     result: "CGPA 3.43 / 4.00",

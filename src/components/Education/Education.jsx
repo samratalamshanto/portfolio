@@ -21,7 +21,18 @@ function EducationCard({ entry }) {
         <span className="edu-card__period">{entry.period}</span>
         <h3 className="edu-card__degree">{entry.degree}</h3>
         <p className="edu-card__institution">
-          {entry.institution}
+          {entry.institutionUrl ? (
+            <a
+              className="edu-card__link"
+              href={entry.institutionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {entry.institution}
+            </a>
+          ) : (
+            entry.institution
+          )}
           <span className="edu-card__location"> · {entry.location}</span>
         </p>
         <span className="edu-card__result">{entry.result}</span>
