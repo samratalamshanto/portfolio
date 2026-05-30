@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "../../contexts/ThemeContext.jsx";
+import { useActiveSection } from "../../hooks/useActiveSection.js";
 import sections from "../../data/sections.json";
 import "./Header.css";
 
@@ -9,13 +10,17 @@ const NAV = sections
   .filter((s) => s.key !== "contact")
   .map((s, i) => ({
     href: `#${s.key}`,
+    id: s.key,
     num: String(i + 1).padStart(2, "0"),
     label: s.name,
   }));
 
+const SECTION_IDS = sections.map((s) => s.key);
+
 export default function Header() {
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
+  const active = useActiveSection(SECTION_IDS);
 
   useEffect(() => {
     const close = () => setOpen(false);
@@ -36,7 +41,12 @@ export default function Header() {
           aria-label="Section navigation"
         >
           {NAV.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              aria-current={active === item.id ? "page" : undefined}
+            >
               <span aria-hidden="true">{item.num}</span> {item.label}
             </a>
           ))}
@@ -44,6 +54,7 @@ export default function Header() {
             href="#contact"
             className="site-nav__cta"
             onClick={() => setOpen(false)}
+            aria-current={active === "contact" ? "page" : undefined}
           >
             Contact
           </a>

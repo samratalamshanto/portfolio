@@ -63,6 +63,7 @@
   margin: 0 0 1.5rem;
   color: var(--text);
   max-width: 18ch;
+  text-wrap: balance;
 }
 .hero__title-accent {
   color: var(--accent);

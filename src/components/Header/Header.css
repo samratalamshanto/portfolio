@@ -58,6 +58,8 @@
 }
 .site-nav a:hover,
 .site-nav a:focus-visible { color: var(--text); }
+.site-nav a[aria-current="page"] { color: var(--accent); }
+.site-nav a[aria-current="page"] span { color: var(--accent); }
 .site-nav__cta {
   color: var(--text) !important;
   padding: 0.55rem 1.1rem;

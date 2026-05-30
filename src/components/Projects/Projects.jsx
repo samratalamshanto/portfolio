@@ -32,7 +32,8 @@ function ProjectCard({ project, flip }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          View on GitHub <span aria-hidden="true">↗</span>
+          View on GitHub
+          <span className="project__link-arrow" aria-hidden="true">↗</span>
         </a>
       </div>
     </article>

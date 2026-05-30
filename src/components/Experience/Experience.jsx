@@ -17,6 +17,7 @@ function renderBullet(text) {
 
 function Role({ role }) {
   const ref = useReveal();
+  const isCurrent = /present/i.test(role.period);
   const logo = (
     <span className="role__logo" aria-hidden="true">
       <img
@@ -29,7 +30,7 @@ function Role({ role }) {
     </span>
   );
   return (
-    <li className="role reveal" ref={ref}>
+    <li className={`role reveal ${isCurrent ? "role--current" : ""}`} ref={ref}>
       <div className="role__meta">
         {role.companyUrl ? (
           <a
@@ -45,7 +46,14 @@ function Role({ role }) {
           logo
         )}
 
-        <span className="role__period">{role.period}</span>
+        <span className="role__period">
+          {role.period}
+          {isCurrent && (
+            <span className="role__now" aria-label="Currently working here">
+              Now
+            </span>
+          )}
+        </span>
 
         <div className="role__company">
           {role.companyUrl ? (
