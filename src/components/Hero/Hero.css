@@ -153,6 +153,14 @@
   box-shadow:
     0 0 0 1px color-mix(in oklab, var(--accent) 18%, transparent),
     0 20px 50px -25px color-mix(in oklab, var(--accent) 45%, transparent);
+  will-change: transform;
+}
+@media (max-width: 820px) {
+  .portrait-frame {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--accent) 22%, transparent),
+      0 14px 40px -18px color-mix(in oklab, var(--accent) 55%, transparent);
+  }
 }
 .portrait-frame::before {
   content: "";
@@ -190,10 +198,22 @@
 @media (max-width: 820px) {
   .hero__main { grid-template-columns: 1fr; }
   .hero__portrait {
-    justify-self: start;
-    width: min(220px, 60%);
+    justify-self: center;
+    width: min(260px, 65%);
     order: -1;
     position: static;
+    margin-bottom: 0.5rem;
   }
   .hero__title { max-width: none; }
+  .hero__meta {
+    gap: 0.6rem;
+    margin-bottom: 1.75rem;
+  }
+}
+
+/* Small phones — full-width CTAs so tap targets are forgiving */
+@media (max-width: 520px) {
+  .hero__actions { width: 100%; flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { justify-content: center; padding-block: 1rem; }
+  .hero__portrait { width: min(240px, 70%); }
 }

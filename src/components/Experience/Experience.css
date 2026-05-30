@@ -128,8 +128,34 @@
   border-radius: 999px;
   color: var(--text-muted);
   background: var(--bg-elev);
+  white-space: nowrap;
 }
 
 @media (max-width: 820px) {
   .role { grid-template-columns: 1fr; gap: 1.25rem; }
+
+  /* Compact horizontal meta strip — logo left, period + company stacked right.
+     Saves vertical space and reads like a card header. */
+  .role__meta {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 1rem;
+    row-gap: 0.15rem;
+    align-items: start;
+  }
+  .role__logo,
+  .role__logo-link {
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+  .role__period {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 0.1rem;
+  }
+  .role__company {
+    grid-column: 2;
+    grid-row: 2;
+  }
 }
