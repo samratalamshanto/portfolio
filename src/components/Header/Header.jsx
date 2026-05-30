@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "../../contexts/ThemeContext.jsx";
 import { useActiveSection } from "../../hooks/useActiveSection.js";
+import { asset } from "../../utils/asset.js";
 import sections from "../../data/sections.json";
 import "./Header.css";
+
+const GITHUB_URL = "https://github.com/samratalamshanto";
+const RESUME_PATH = "/assets/Samrat_Alam_Resume.pdf";
 
 // Build the nav from the same source of truth used in App.jsx. Contact is
 // rendered as the trailing CTA, so it's filtered out of the regular nav.
@@ -62,6 +66,40 @@ export default function Header() {
         </nav>
 
         <div className="site-header__actions">
+          <a
+            className="header-link"
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+              <path
+                fill="currentColor"
+                d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.26 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"
+              />
+            </svg>
+          </a>
+          <a
+            className="header-link header-link--cv"
+            href={asset(RESUME_PATH)}
+            download
+            aria-label="Download résumé (PDF)"
+            title="Download résumé"
+          >
+            <span>CV</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"
+              />
+            </svg>
+          </a>
           <button
             type="button"
             className="theme-toggle"

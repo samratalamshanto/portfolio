@@ -8,9 +8,12 @@ const LINKS = [
   { label: "GitHub", value: "github.com/samratalamshanto", href: "https://github.com/samratalamshanto" },
 ];
 
+const hrefFor = (label) => LINKS.find((l) => l.label === label).href;
+
 export default function Contact({ index }) {
   const headerRef = useReveal();
   const linksRef = useReveal();
+  const ctaRef = useReveal();
 
   return (
     <section id="contact" className="section contact container" aria-labelledby="contact-heading">
@@ -41,6 +44,31 @@ export default function Contact({ index }) {
           </li>
         ))}
       </ul>
+
+      <div className="contact__cta reveal" ref={ctaRef}>
+        <p className="contact__cta-title">Interested in working together?</p>
+        <div className="contact__cta-actions">
+          <a className="btn btn--primary" href={hrefFor("Email")}>
+            Email me
+          </a>
+          <a
+            className="btn btn--ghost"
+            href={hrefFor("LinkedIn")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Connect on LinkedIn
+          </a>
+          <a
+            className="btn btn--ghost"
+            href={hrefFor("GitHub")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View GitHub
+          </a>
+        </div>
+      </div>
     </section>
   );
 }
