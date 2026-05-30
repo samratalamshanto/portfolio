@@ -1,4 +1,5 @@
 import { useReveal } from "../../hooks/useReveal.js";
+import { asset } from "../../utils/asset.js";
 import { EDUCATION } from "./educationData.js";
 import "./Education.css";
 
@@ -8,7 +9,7 @@ function EducationCard({ entry }) {
     <article className="edu-card reveal" ref={ref}>
       <div className="edu-card__media">
         <img
-          src={entry.image}
+          src={asset(entry.image)}
           alt=""
           width="140"
           height="140"

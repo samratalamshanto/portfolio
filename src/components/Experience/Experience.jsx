@@ -1,4 +1,5 @@
 import { useReveal } from "../../hooks/useReveal.js";
+import { asset } from "../../utils/asset.js";
 import { EXPERIENCE } from "./experienceData.js";
 import "./Experience.css";
 
@@ -23,7 +24,7 @@ function Role({ role }) {
         <span className="role__company">
           <span className="role__logo" aria-hidden="true">
             <img
-              src={role.logo}
+              src={asset(role.logo)}
               alt=""
               width="44"
               height="44"

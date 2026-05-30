@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useReveal } from "../../hooks/useReveal.js";
+import { asset } from "../../utils/asset.js";
 import HeroParticles from "./HeroParticles.jsx";
 import "./Hero.css";
 
@@ -100,7 +101,7 @@ export default function Hero() {
         <figure className="hero__portrait reveal" ref={portraitRef}>
           <div className="portrait-frame">
             <img
-              src="/assets/portrait.jpg"
+              src={asset("/assets/portrait.jpg")}
               alt="Portrait of Samrat Alam"
               width="480"
               height="600"

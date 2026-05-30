@@ -1,4 +1,5 @@
 import { useReveal } from "../../hooks/useReveal.js";
+import { asset } from "../../utils/asset.js";
 import { PROJECTS } from "./projectsData.js";
 import "./Projects.css";
 
@@ -8,7 +9,7 @@ function ProjectCard({ project, flip }) {
     <article className={`project reveal ${flip ? "project--flip" : ""}`} ref={ref}>
       <div className="project__media">
         <img
-          src={project.image}
+          src={asset(project.image)}
           alt=""
           width="800"
           height="500"
