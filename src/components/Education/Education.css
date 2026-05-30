@@ -73,6 +73,7 @@
 .edu-card__result {
   display: inline-flex;
   align-self: start;
+  justify-self: start;
   margin-top: 0.5rem;
   padding: 0.35rem 0.75rem;
   font-family: var(--ff-mono);
@@ -86,12 +87,15 @@
 }
 
 @media (max-width: 640px) {
+  /* Keep logo left, text right — mirrors the Experience meta layout. */
   .edu-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 1rem;
     padding: 1.5rem;
+    align-items: start;
   }
   .edu-card__media {
-    width: 88px;
-    height: 88px;
+    width: 72px;
+    height: 72px;
   }
 }
