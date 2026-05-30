@@ -1,42 +1,43 @@
 import { useReveal } from "../../hooks/useReveal.js";
 import "./Background.css";
 
+const PLATFORMS = [
+  { label: "LeetCode", href: "https://leetcode.com/" },
+  { label: "Codeforces", href: "https://codeforces.com/" },
+  { label: "CSES", href: "https://cses.fi/" },
+];
+
 export default function Background() {
-  const educationRef = useReveal();
-  const cpRef = useReveal();
+  const headerRef = useReveal();
+  const cardRef = useReveal();
 
   return (
-    <section className="section section--split container" aria-label="Background">
-      <div className="split reveal" ref={educationRef}>
-        <span className="section__index">06 / Education</span>
-        <h2 className="section__title section__title--sm">
-          Khulna University of Engineering &amp; Technology
+    <section
+      id="cp"
+      className="section background container"
+      aria-labelledby="cp-heading"
+    >
+      <header className="section__header reveal" ref={headerRef}>
+        <span className="section__index">07 / Practice</span>
+        <h2 id="cp-heading" className="section__title">
+          Competitive programming
         </h2>
-        <p className="split__meta">B.Sc. in Computer Science &amp; Engineering</p>
-        <p className="split__meta">2017 — 2022 · CGPA 3.43 / 4.00</p>
-      </div>
+      </header>
 
-      <div className="split reveal" ref={cpRef}>
-        <span className="section__index">07 / Competitive programming</span>
-        <h2 className="section__title section__title--sm">
-          600+ problems solved
-        </h2>
+      <div className="cp-card reveal" ref={cardRef}>
+        <div className="cp-card__stat">
+          <span className="cp-card__num">600+</span>
+          <span className="cp-card__label">Problems solved across platforms</span>
+        </div>
         <ul className="cp-list">
-          <li>
-            <a href="https://leetcode.com/" rel="noopener noreferrer" target="_blank">
-              LeetCode
-            </a>
-          </li>
-          <li>
-            <a href="https://codeforces.com/" rel="noopener noreferrer" target="_blank">
-              Codeforces
-            </a>
-          </li>
-          <li>
-            <a href="https://cses.fi/" rel="noopener noreferrer" target="_blank">
-              CSES
-            </a>
-          </li>
+          {PLATFORMS.map((p) => (
+            <li key={p.label}>
+              <a href={p.href} target="_blank" rel="noopener noreferrer">
+                {p.label}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

@@ -12,6 +12,9 @@ Drop image files here matching these names — the site picks them up automatica
 | `project-ecommerce.png`   | Projects — P-01 thumbnail | 800 × 500 (16:10) | Architecture diagram or screenshot |
 | `project-banking.png`     | Projects — P-02 thumbnail | 800 × 500 (16:10) | Architecture diagram or screenshot |
 | `project-goapi.png`       | Projects — P-03 thumbnail | 800 × 500 (16:10) | Architecture diagram or screenshot |
+| `edu-kuet.jpg`            | Education — KUET           | 280 × 280 (square) | Logo or campus photo |
+| `edu-udayan.jpg`          | Education — Udayan HSC     | 280 × 280 (square) | Logo or campus photo |
+| `edu-stgregory.jpg`       | Education — St. Gregory SSC | 280 × 280 (square) | Logo or campus photo |
 | `og-cover.png` (optional) | Social share preview      | 1200 × 630       | Used by `og:image` |
 
 ## Tips
