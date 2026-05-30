@@ -1,11 +1,14 @@
 import { useReveal } from "../../hooks/useReveal.js";
+import { asset } from "../../utils/asset.js";
 import "./Contact.css";
+
+const RESUME_HREF = asset("/assets/Samrat_Alam_Resume.pdf");
 
 const LINKS = [
   { label: "Email", value: "samratalam21@gmail.com", href: "mailto:samratalam21@gmail.com" },
-  { label: "Phone", value: "+880 1833 183699", href: "tel:+8801833183699" },
   { label: "LinkedIn", value: "linkedin.com/in/samrat-alam", href: "https://www.linkedin.com/in/samrat-alam/" },
   { label: "GitHub", value: "github.com/samratalamshanto", href: "https://github.com/samratalamshanto" },
+  { label: "Résumé", value: "Download PDF", href: RESUME_HREF, download: true },
 ];
 
 const hrefFor = (label) => LINKS.find((l) => l.label === label).href;
@@ -34,12 +37,15 @@ export default function Contact({ index }) {
           <li key={l.label}>
             <a
               href={l.href}
-              target={l.href.startsWith("http") ? "_blank" : undefined}
-              rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              download={l.download || undefined}
+              target={!l.download && l.href.startsWith("http") ? "_blank" : undefined}
+              rel={!l.download && l.href.startsWith("http") ? "noopener noreferrer" : undefined}
             >
               <span>{l.label}</span>
               <strong>{l.value}</strong>
-              <span className="contact__arrow" aria-hidden="true">→</span>
+              <span className="contact__arrow" aria-hidden="true">
+                {l.download ? "↓" : "→"}
+              </span>
             </a>
           </li>
         ))}
@@ -51,13 +57,8 @@ export default function Contact({ index }) {
           <a className="btn btn--primary" href={hrefFor("Email")}>
             Email me
           </a>
-          <a
-            className="btn btn--ghost"
-            href={hrefFor("LinkedIn")}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Connect on LinkedIn
+          <a className="btn btn--ghost" href={RESUME_HREF} download>
+            Download résumé
           </a>
           <a
             className="btn btn--ghost"
