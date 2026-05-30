@@ -6,13 +6,13 @@ Live (once deployed): `https://samratalam.github.io/`
 
 ## Stack
 
-| | |
-|---|---|
-| Framework | React 18 |
-| Bundler | Vite 5 |
-| Styling | Plain CSS with CSS custom properties (`src/styles/tokens.css`) |
-| Theme | Dark default + light mode, persisted in `localStorage` |
-| Hosting | GitHub Pages via the bundled GitHub Actions workflow |
+|           |                                                                |
+| --------- | -------------------------------------------------------------- |
+| Framework | React 18                                                       |
+| Bundler   | Vite 5                                                         |
+| Styling   | Plain CSS with CSS custom properties (`src/styles/tokens.css`) |
+| Theme     | Dark default + light mode, persisted in `localStorage`         |
+| Hosting   | GitHub Pages via the bundled GitHub Actions workflow           |
 
 No CSS framework, no UI library — small bundle, fast load.
 
@@ -29,7 +29,7 @@ npm run preview      # serve the production build locally
 
 Two repo-naming options — they affect the URL and the Vite `base` path:
 
-### Option A — User page (root URL, recommended)
+### Option A — User page (root URL,  recommended)
 
 1. Create a GitHub repo named **`samratalam.github.io`**.
 2. `git remote add origin git@github.com:samratalam/samratalam.github.io.git`
@@ -105,6 +105,7 @@ See `public/assets/README.md` for the required filenames and dimensions. The pag
 Tokens live in `src/styles/tokens.css`. To change accent colour, edit `--accent` (dark) and the `[data-theme="light"] { --accent }` value.
 
 The theme toggle is in the header. The initial theme is chosen by:
+
 1. Previous user choice from `localStorage`
 2. `prefers-color-scheme`
 3. Default to dark
