@@ -1,6 +1,11 @@
 .hero {
+  position: relative;
   padding-top: clamp(3rem, 2.5rem + 4vw, 6rem);
   padding-bottom: clamp(3rem, 2.5rem + 4vw, 5.5rem);
+}
+.hero > *:not(.hero-particles) {
+  position: relative;
+  z-index: 1;
 }
 
 .hero__meta {
