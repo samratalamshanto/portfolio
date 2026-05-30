@@ -54,7 +54,7 @@ Site URL: `https://samratalam.github.io/samrat-alam-portfolio/`
 ## Project structure
 
 ```
-samrat-alam-portfolio/
+portfolio/
 ├── public/
 │   ├── .nojekyll                 # disables Jekyll on GH Pages
 │   ├── favicon.svg
