@@ -219,6 +219,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Anchor the face if the source is ever swapped with one whose aspect
+     doesn't exactly match the frame. With the current 4:5 source this is
+     effectively a no-op, but it keeps the face high if a wider image is
+     ever dropped in without re-cropping. */
+  object-position: center 25%;
   transition: transform var(--dur-slow) var(--ease);
 }
 .portrait-frame:hover img { transform: scale(1.03); }

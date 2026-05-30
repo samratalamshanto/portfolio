@@ -1,6 +1,14 @@
 """
-Crop public/assets/portrait.jpg to a 4:5 portrait aspect ratio, centered on
-the subject. Trims white side margins, no upscaling, high-quality JPEG.
+Crop public/assets/portrait.jpg to a target portrait aspect, anchored on the
+subject. Trims white side margins, no upscaling, high-quality JPEG.
+
+Two modes:
+- Default (FACE_TOP_PCT = None):
+    crop centred on the bbox of non-white pixels. Face ends up at upper-
+    third (~30% from top). Conservative, keeps the suit visible.
+- Face-forward (FACE_TOP_PCT set, e.g. 0.18):
+    crop anchored so the bbox TOP sits at FACE_TOP_PCT of the output. Face
+    appears higher in frame; bottom of suit gets clipped.
 
 Usage:  python3 scripts/crop-portrait.py
 """
@@ -12,6 +20,10 @@ from PIL import Image
 SRC = Path(__file__).resolve().parents[1] / "public" / "assets" / "portrait.jpg"
 WHITE_THRESHOLD = 240   # pixels with all channels >= this are treated as background
 TARGET_W_RATIO, TARGET_H_RATIO = 4, 5
+
+# Set to a fraction (e.g. 0.08) to anchor the head closer to the top of
+# the output frame. None = subject-bbox-centered (default).
+FACE_TOP_PCT = None
 
 if not SRC.exists():
     sys.exit(f"missing source file: {SRC}")
@@ -38,8 +50,16 @@ if max_w > W:
     max_h = W * TARGET_H_RATIO / TARGET_W_RATIO
 
 half_w, half_h = max_w / 2.0, max_h / 2.0
-left, top = cx - half_w, cy - half_h
-right, bottom = cx + half_w, cy + half_h
+left = cx - half_w
+right = cx + half_w
+
+if FACE_TOP_PCT is None:
+    top = cy - half_h
+    bottom = cy + half_h
+else:
+    # Anchor bbox top to FACE_TOP_PCT of output. Trim from the bottom.
+    top = y_min - max_h * FACE_TOP_PCT
+    bottom = top + max_h
 
 # Clamp to image, preserving box size by shifting.
 if left < 0:
