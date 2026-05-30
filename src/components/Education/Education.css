@@ -69,6 +69,19 @@
 .edu-card__location {
   color: var(--text-muted);
 }
+.edu-card__link {
+  color: var(--text-dim);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--accent) 40%, transparent);
+  text-underline-offset: 0.15em;
+  transition: color var(--dur-fast) var(--ease),
+              text-decoration-color var(--dur-fast) var(--ease);
+}
+.edu-card__link:hover,
+.edu-card__link:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
 
 .edu-card__result {
   display: inline-flex;

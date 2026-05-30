@@ -9,9 +9,9 @@ export const EXPERIENCE = [
     summary:
       "Building Banglalink's payment service provider (PSP) middleware and Zoober Pay's wallet platform. Day-to-day is Spring Boot, Kafka outbox, Redis idempotency, and a lot of integration contracts.",
     bullets: [
-      "Contributed to Banglalink's PSP middleware integrating **Huawei Mobile Money 2.0** for P2M, P2P, bill payment, and mobile recharge flows.",
+      "Contributed to [Banglalink](https://www.banglalink.net/)'s PSP middleware integrating **Huawei Mobile Money 2.0** for P2M, P2P, bill payment, and mobile recharge flows.",
       "Developed event-driven payment services on **APISIX, Kafka outbox, Redis idempotency, and PostgreSQL** for reliable asynchronous transaction processing.",
-      "Built backend services for **Zoober Pay** — eKYC onboarding, wallet management, card top-up, and AML screening integrations with Nuvei and ComplyAdvantage.",
+      "Built backend services for [Zoober Pay](https://zooberpay.com/) — eKYC onboarding, wallet management, card top-up, and AML screening integrations with [Nuvei](https://www.nuvei.com/) and [ComplyAdvantage](https://complyadvantage.com/).",
     ],
     tags: ["Spring Boot", "Kafka", "APISIX", "Redis", "PostgreSQL", "Huawei MM 2.0"],
   },
@@ -25,9 +25,9 @@ export const EXPERIENCE = [
     summary:
       "Telecom-scale backend work for Robi's Nextgen Loyalty platform and Smart Axiata's eCRM. Spring Boot, Kafka, RabbitMQ — built for throughput, fault tolerance, and operational sanity.",
     bullets: [
-      "Contributed to **Robi's Nextgen Loyalty Platform** serving **60M+ subscribers** at a sustained peak of **1,200 TPS**.",
+      "Contributed to [Robi](https://www.robi.com.bd/)'s **Nextgen Loyalty Platform** serving **60M+ subscribers** at a sustained peak of **1,200 TPS**.",
       "Developed Spring Boot microservices with **Kafka and RabbitMQ** for telecom order, notification, and workflow automation — cutting manual ops handling by ~40%.",
-      "Built resilient services and fault-tolerant batch workflows for **Smart Axiata's eCRM** platform.",
+      "Built resilient services and fault-tolerant batch workflows for [Smart Axiata](https://www.smart.com.kh/)'s eCRM platform.",
       "Recognised with the **Spotlight Award (Q2 & Q3 2023)** and **Employee of the Month (Feb 2023)**.",
     ],
     tags: ["Spring Boot", "Kafka", "RabbitMQ", "PostgreSQL", "Telecom"],
