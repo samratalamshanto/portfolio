@@ -112,6 +112,14 @@ export default function Hero() {
               <a className="btn btn--ghost" href="#contact">
                 Get in touch
               </a>
+              <a
+                className="btn btn--ghost"
+                href={asset("/assets/Samrat_Alam_Resume.pdf")}
+                download
+              >
+                Download CV
+                <span aria-hidden="true">↓</span>
+              </a>
             </div>
           </div>
         </div>
