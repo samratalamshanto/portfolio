@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useReveal } from "../../hooks/useReveal.js";
 import { asset } from "../../utils/asset.js";
 import { yearsPlus } from "../../utils/experience.js";
-import HeroParticles from "./HeroParticles.jsx";
 import "./Hero.css";
 
 const TITLES = [
@@ -51,7 +50,6 @@ export default function Hero() {
 
   return (
     <section className="hero container" aria-labelledby="hero-heading">
-      <HeroParticles />
       <div className="hero__meta reveal" ref={metaRef}>
         <span className="kicker">
           <span className="dot" aria-hidden="true" />

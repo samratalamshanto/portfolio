@@ -3,10 +3,6 @@
   padding-top: clamp(2.5rem, 2rem + 3vw, 4.5rem);
   padding-bottom: clamp(2rem, 1.75rem + 2.5vw, 4rem);
 }
-.hero > *:not(.hero-particles) {
-  position: relative;
-  z-index: 1;
-}
 
 .hero__meta {
   display: flex;
