@@ -52,7 +52,7 @@
 .site-nav a span {
   font-family: var(--ff-mono);
   color: var(--accent);
-  margin-right: 0.4rem;
+  margin-right: 0.2rem;
   font-size: 0.72rem;
   font-weight: 500;
 }

@@ -47,7 +47,8 @@ export default function Header() {
               onClick={() => setOpen(false)}
               aria-current={active === item.id ? "page" : undefined}
             >
-              <span aria-hidden="true">{item.num}</span> {item.label}
+              <span aria-hidden="true">{item.num}</span>
+              {item.label}
             </a>
           ))}
           <a
