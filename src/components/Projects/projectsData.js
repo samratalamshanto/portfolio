@@ -1,3 +1,7 @@
+// URL for the "more projects" CTA below the curated list. Points to the
+// GitHub repositories tab — change here to repoint or hide (set to null).
+export const MORE_PROJECTS_URL = "https://github.com/samratalamshanto?tab=repositories";
+
 // `index` (P-01, P-02, …) is computed from array position at render time so
 // adding / reordering projects doesn't need manual renumbering.
 const RAW_PROJECTS = [

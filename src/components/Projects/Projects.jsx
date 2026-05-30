@@ -1,6 +1,6 @@
 import { useReveal } from "../../hooks/useReveal.js";
 import { asset } from "../../utils/asset.js";
-import { PROJECTS } from "./projectsData.js";
+import { PROJECTS, MORE_PROJECTS_URL } from "./projectsData.js";
 import "./Projects.css";
 
 function ProjectCard({ project, flip }) {
@@ -42,6 +42,7 @@ function ProjectCard({ project, flip }) {
 
 export default function Projects({ index }) {
   const headerRef = useReveal();
+  const moreRef = useReveal();
   return (
     <section
       id="projects"
@@ -60,6 +61,22 @@ export default function Projects({ index }) {
           <ProjectCard key={p.index} project={p} flip={i % 2 === 1} />
         ))}
       </div>
+
+      {MORE_PROJECTS_URL && (
+        <div className="projects__more reveal" ref={moreRef}>
+          <span className="projects__more-rule" aria-hidden="true" />
+          <a
+            href={MORE_PROJECTS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="projects__more-link"
+          >
+            <span>More projects on GitHub</span>
+            <span className="projects__more-arrow" aria-hidden="true">↗</span>
+          </a>
+          <span className="projects__more-rule" aria-hidden="true" />
+        </div>
+      )}
     </section>
   );
 }
