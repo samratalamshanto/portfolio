@@ -1,14 +1,22 @@
 import { useReveal } from "../../hooks/useReveal.js";
+import { EXPERIENCE } from "../Experience/experienceData.js";
 import "./About.css";
 
-const FACTS = [
-  { dt: "Currently", dd: "Senior Software Engineer — Brain Station 23" },
-  { dt: "Focus", dd: "Payment middleware · Event-driven systems · Distributed reliability" },
-  { dt: "Stack", dd: "Java 17 · Spring Boot · Kafka · PostgreSQL · Redis · APISIX" },
-  { dt: "Based in", dd: "Dhaka, Bangladesh — open to remote" },
-];
+// Derive "Currently" from the first role that is still in progress, so this
+// auto-updates whenever experienceData.js changes (e.g. job switch).
+function currentRole() {
+  const present = EXPERIENCE.find((r) => /present/i.test(r.period));
+  const r = present ?? EXPERIENCE[0];
+  return `${r.title} — ${r.company}`;
+}
 
 export default function About() {
+  const FACTS = [
+    { dt: "Currently", dd: currentRole() },
+    { dt: "Focus", dd: "Payment middleware · Event-driven systems · Distributed reliability" },
+    { dt: "Stack", dd: "Java 17 · Spring Boot · Kafka · PostgreSQL · Redis · APISIX" },
+    { dt: "Based in", dd: "Dhaka, Bangladesh — open to remote" },
+  ];
   const headerRef = useReveal();
   const ledeRef = useReveal();
   const factsRef = useReveal();

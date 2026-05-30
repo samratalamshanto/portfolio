@@ -9,12 +9,19 @@ export function yearsOfExperience(now = new Date()) {
   return (now.getTime() - EXPERIENCE_START.getTime()) / YEAR_MS;
 }
 
-// "4.1" — 1-decimal precision, for stat-strip context.
-export function yearsDecimal(now) {
-  return yearsOfExperience(now).toFixed(1);
+// Round up to nearest half-year (4.1 -> 4.5, 4.6 -> 5.0, 5.0 -> 5.0).
+// Matches how seniority is conventionally phrased on resumes/portfolios.
+function ceilHalf(n) {
+  return Math.ceil(n * 2) / 2;
 }
 
-// "4+" — whole-year floor with plus sign, for prose context.
+// "4.5" — for stat-strip context. Drops trailing .0 (e.g. 5.0 -> "5").
+export function yearsDecimal(now) {
+  const v = ceilHalf(yearsOfExperience(now));
+  return v % 1 === 0 ? String(v) : v.toFixed(1);
+}
+
+// "4.5+" — for prose context. Same rounding + plus sign.
 export function yearsPlus(now) {
-  return `${Math.floor(yearsOfExperience(now))}+`;
+  return `${yearsDecimal(now)}+`;
 }

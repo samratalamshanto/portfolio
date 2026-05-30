@@ -2,9 +2,9 @@ import { useReveal } from "../../hooks/useReveal.js";
 import "./Background.css";
 
 const PLATFORMS = [
-  { label: "LeetCode", href: "https://leetcode.com/" },
-  { label: "Codeforces", href: "https://codeforces.com/" },
-  { label: "CSES", href: "https://cses.fi/" },
+  { label: "LeetCode", href: "https://leetcode.com/u/samratalam/" },
+  { label: "Codeforces", href: "https://codeforces.com/profile/samratshanto" },
+  { label: "CSES", href: "https://cses.fi/user/183254" },
 ];
 
 export default function Background() {

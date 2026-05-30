@@ -7,8 +7,18 @@ function Paper({ paper }) {
   return (
     <li className="paper reveal" ref={ref}>
       <span className="paper__venue">{paper.venue}</span>
-      <div>
-        <h3 className="paper__title">{paper.title}</h3>
+      <div className="paper__body">
+        <h3 className="paper__title">
+          <a
+            href={paper.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="paper__link"
+          >
+            {paper.title}
+            <span className="paper__arrow" aria-hidden="true">↗</span>
+          </a>
+        </h3>
         <p className="paper__note">{paper.note}</p>
       </div>
     </li>
