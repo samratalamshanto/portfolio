@@ -124,6 +124,14 @@
 .menu-toggle.is-open span:nth-child(2) { opacity: 0; }
 .menu-toggle.is-open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
+/* Narrow-desktop (tablet landscape -> small laptop). With 7 nav items the
+   header gets crowded; hide the leading 01/02/... index numbers and tighten
+   the gap so labels still breathe. */
+@media (max-width: 1100px) and (min-width: 821px) {
+  .site-nav { gap: 1.1rem; font-size: 0.825rem; }
+  .site-nav a span { display: none; }
+}
+
 @media (max-width: 820px) {
   .site-nav {
     position: fixed;
