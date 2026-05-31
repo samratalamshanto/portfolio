@@ -7,6 +7,7 @@ import Skills from "./components/Skills/Skills.jsx";
 import Projects from "./components/Projects/Projects.jsx";
 import Publications from "./components/Publications/Publications.jsx";
 import Education from "./components/Education/Education.jsx";
+import Background from "./components/Background/Background.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 
@@ -23,6 +24,7 @@ const COMPONENT_BY_KEY = {
   projects: Projects,
   publications: Publications,
   education: Education,
+  background: Background,
   contact: Contact,
 };
 

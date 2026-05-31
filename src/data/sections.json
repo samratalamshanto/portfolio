@@ -5,5 +5,6 @@
   { "key": "projects",     "name": "Projects" },
   { "key": "publications", "name": "Research" },
   { "key": "education",    "name": "Education" },
+  { "key": "background",   "name": "Algorithms" },
   { "key": "contact",      "name": "Contact" }
 ]

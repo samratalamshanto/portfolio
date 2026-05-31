@@ -49,6 +49,8 @@
             t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
           }
           document.documentElement.setAttribute("data-theme", t);
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute("content", t === "light" ? "#fbfbfc" : "#0c0d10");
         } catch (e) {
           document.documentElement.setAttribute("data-theme", "dark");
         }

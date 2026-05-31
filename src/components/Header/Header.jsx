@@ -7,9 +7,11 @@ import "./Header.css";
 const GITHUB_URL = "https://github.com/samratalamshanto";
 
 // Build the nav from the same source of truth used in App.jsx. Contact is
-// rendered as the trailing CTA, so it's filtered out of the regular nav.
+// rendered as the trailing CTA, and "background" (Competitive programming)
+// renders on the page but is intentionally left out of the nav.
+const NAV_HIDDEN = new Set(["contact", "background"]);
 const NAV = sections
-  .filter((s) => s.key !== "contact")
+  .filter((s) => !NAV_HIDDEN.has(s.key))
   .map((s, i) => ({
     href: `#${s.key}`,
     id: s.key,

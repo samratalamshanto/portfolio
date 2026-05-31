@@ -26,7 +26,10 @@ export function useActiveSection(ids) {
               bestId = k;
             }
           });
-          if (bestId) setActive(bestId);
+          // bestId is null when nothing is in view (e.g. scrolled up to the
+          // hero) — set it anyway so the nav highlight clears instead of
+          // sticking on the last section.
+          setActive(bestId);
         },
         { threshold: [0, 0.15, 0.35, 0.6, 1], rootMargin: "-20% 0px -45% 0px" }
       );

@@ -2,6 +2,10 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 
 const ThemeContext = createContext({ theme: "dark", toggle: () => {} });
 
+// Browser-chrome colour per theme (matches --bg). meta[name=theme-color] only
+// accepts a concrete colour, so these are hex equivalents of the bg tokens.
+const THEME_COLOR = { dark: "#0c0d10", light: "#fbfbfc" };
+
 function readInitialTheme() {
   if (typeof document === "undefined") return "dark";
   const attr = document.documentElement.getAttribute("data-theme");
@@ -21,6 +25,9 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", THEME_COLOR[theme]);
     try {
       localStorage.setItem("theme", theme);
     } catch {}

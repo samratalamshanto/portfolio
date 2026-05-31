@@ -98,8 +98,9 @@
 }
 
 .hero__typer {
-  display: inline-flex;
-  align-items: baseline;
+  display: flex;
+  width: fit-content;
+  align-items: center;
   gap: 0.35rem;
   padding: 0.45rem 0.85rem;
   margin-bottom: 2rem;
@@ -110,14 +111,18 @@
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--text);
-  min-height: 32px;
+  height: 32px;
+}
+.hero__typer-text {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
 }
 .hero__typer-caret {
   display: inline-block;
   width: 2px;
   height: 0.95em;
   background: var(--accent);
-  transform: translateY(2px);
   animation: blink 1.1s steps(2, end) infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }

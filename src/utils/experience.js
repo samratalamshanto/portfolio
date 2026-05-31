@@ -9,19 +9,19 @@ export function yearsOfExperience(now = new Date()) {
   return (now.getTime() - EXPERIENCE_START.getTime()) / YEAR_MS;
 }
 
-// Round up to nearest half-year (4.1 -> 4.5, 4.6 -> 5.0, 5.0 -> 5.0).
-// Matches how seniority is conventionally phrased on resumes/portfolios.
-function ceilHalf(n) {
-  return Math.ceil(n * 2) / 2;
+// Round to the nearest half-year (4.08 -> 4.0, 4.3 -> 4.5, 4.6 -> 4.5, 4.8 -> 5.0).
+// Honest rounding — avoids inflating tenure beyond what's actually elapsed.
+function roundHalf(n) {
+  return Math.round(n * 2) / 2;
 }
 
-// "4.5" — for stat-strip context. Drops trailing .0 (e.g. 5.0 -> "5").
+// "4" — for stat-strip context. Drops trailing .0 (e.g. 5.0 -> "5").
 export function yearsDecimal(now) {
-  const v = ceilHalf(yearsOfExperience(now));
+  const v = roundHalf(yearsOfExperience(now));
   return v % 1 === 0 ? String(v) : v.toFixed(1);
 }
 
-// "4.5+" — for prose context. Same rounding + plus sign.
+// "4+" — for prose context. Same rounding + plus sign.
 export function yearsPlus(now) {
   return `${yearsDecimal(now)}+`;
 }

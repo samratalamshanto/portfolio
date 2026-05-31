@@ -2,7 +2,7 @@
 
 Personal portfolio for **Samrat Alam** — Backend Engineer. Built with Vite + React, plain CSS with design-token theming, and a dark/light theme toggle.
 
-Live (once deployed): `https://samratalam.github.io/`
+Live (once deployed): `https://samratalamshanto.github.io/portfolio/`
 
 ## Stack
 
@@ -27,29 +27,25 @@ npm run preview      # serve the production build locally
 
 ## Deploying to GitHub Pages
 
-Two repo-naming options — they affect the URL and the Vite `base` path:
+The repo name determines the URL and the Vite `base` path:
 
-### Option A — User page (root URL,  recommended)
+### Project page (current setup)
 
-1. Create a GitHub repo named **`samratalam.github.io`**.
-2. `git remote add origin git@github.com:samratalam/samratalam.github.io.git`
-3. `git push -u origin main`
-4. In the repo's **Settings → Pages**, set "Source" to **GitHub Actions**.
-5. The included workflow (`.github/workflows/deploy.yml`) builds with `VITE_BASE=/` and deploys on every push to `main`.
-
-Site URL: `https://samratalam.github.io/`
-
-### Option B — Project page (subpath URL)
-
-1. Create a GitHub repo named **`portfolio`**.
-2. Push to `main`.
-3. In **Settings → Pages**, set "Source" to **GitHub Actions**.
-4. In **Settings → Secrets and variables → Actions → Variables**, add a repo variable:
-   - Name: `VITE_BASE`
-   - Value: `/portfolio/`
-5. Workflow auto-deploys on push.
+1. Create a GitHub repo named **`portfolio`** and push to `main`.
+2. In **Settings → Pages**, set "Source" to **GitHub Actions**.
+3. The included workflow (`.github/workflows/deploy.yml`) builds with `VITE_BASE=/portfolio/` (the default) and deploys on every push to `main`. To deploy under a different repo name, set a repo variable **Settings → Secrets and variables → Actions → Variables** named `VITE_BASE` to `/<repo-name>/`.
 
 Site URL: `https://samratalamshanto.github.io/portfolio/`
+
+> The canonical and Open Graph URLs in `index.html` are hardcoded to this address — update them if you deploy elsewhere.
+
+### Alternative — User page (root URL)
+
+1. Create a GitHub repo named **`samratalamshanto.github.io`** and push to `main`.
+2. In **Settings → Pages**, set "Source" to **GitHub Actions**.
+3. Add a repo variable `VITE_BASE` with value `/`, and update the hardcoded URLs in `index.html` to `https://samratalamshanto.github.io/`.
+
+Site URL: `https://samratalamshanto.github.io/`
 
 ## Project structure
 
@@ -76,7 +72,8 @@ portfolio/
 │       ├── Skills/       # skills data in skillsData.js
 │       ├── Projects/     # project data in projectsData.js
 │       ├── Publications/ # paper data in publicationsData.js
-│       ├── Background/   # education + competitive programming
+│       ├── Education/     # education data in educationData.js
+│       ├── Background/    # competitive programming
 │       ├── Contact/
 │       └── Footer/
 ├── index.html
@@ -94,7 +91,7 @@ All copy lives in plain JS data files alongside each component:
 - `src/components/Projects/projectsData.js` — projects, links, tags
 - `src/components/Publications/publicationsData.js` — papers
 
-Hero, About, Background (education + CP), and Contact are inline in their JSX files. The displayed year in the footer is generated from `new Date()`.
+Hero, About, and Contact are inline in their JSX files. The displayed year in the footer is generated from `new Date()`.
 
 ## Adding images
 

@@ -11,7 +11,7 @@ const LINKS = [
   { label: "Résumé", value: "Download PDF", href: RESUME_HREF, download: true },
 ];
 
-const hrefFor = (label) => LINKS.find((l) => l.label === label).href;
+const hrefFor = (label) => LINKS.find((l) => l.label === label)?.href ?? "#";
 
 export default function Contact({ index }) {
   const headerRef = useReveal();
