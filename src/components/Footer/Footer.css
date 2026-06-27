@@ -13,8 +13,13 @@
   color: var(--text-muted);
 }
 .site-footer__meta a {
-  color: var(--text-dim);
-  border-bottom: 1px dashed var(--border);
-  transition: color var(--dur-fast) var(--ease);
+  color: var(--text);
+  border-bottom: 1px solid color-mix(in oklab, var(--accent) 42%, transparent);
+  text-underline-offset: 0.18em;
+  transition: color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease);
 }
-.site-footer__meta a:hover { color: var(--accent); }
+.site-footer__meta a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}

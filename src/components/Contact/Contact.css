@@ -17,7 +17,7 @@
 .contact__links a {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 22px minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.25rem 1rem;
   padding: 1.5rem 1.75rem;
@@ -30,14 +30,29 @@
               transform var(--dur-fast) var(--ease),
               box-shadow var(--dur-fast) var(--ease);
 }
+.contact__icon {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  align-self: center;
+  transition: color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
 .contact__links a:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
   box-shadow: 0 16px 34px -30px var(--accent);
 }
 .contact__links a:active { transform: translateY(0); }
+.contact__links a:hover .contact__icon,
+.contact__links a:focus-visible .contact__icon {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
 .contact__links a > span:first-child {
-  grid-column: 1 / 2;
+  grid-column: 2 / 3;
   font-family: var(--ff-mono);
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -46,7 +61,7 @@
   font-weight: 500;
 }
 .contact__links a strong {
-  grid-column: 1 / 2;
+  grid-column: 2 / 3;
   grid-row: 2 / 3;
   font-weight: 500;
   font-size: var(--text-base);
@@ -54,7 +69,7 @@
   color: var(--text);
 }
 .contact__arrow {
-  grid-column: 2 / 3;
+  grid-column: 3 / 4;
   grid-row: 1 / 3;
   align-self: center;
   font-size: 1.1rem;
