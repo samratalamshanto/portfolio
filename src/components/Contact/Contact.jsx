@@ -54,11 +54,38 @@ export default function Contact({ index }) {
       <div className="contact__cta reveal" ref={ctaRef}>
         <p className="contact__cta-title">Interested in working together?</p>
         <div className="contact__cta-actions">
-          <a className="btn btn--primary" href={hrefFor("Email")}>
+          <a className="btn btn--primary btn--send" href={hrefFor("Email")}>
             Email me
+            <svg className="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 12 20 4l-4 16-4-6-8-2Z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="m12 14 4-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
           </a>
-          <a className="btn btn--ghost" href={RESUME_HREF} download>
+          <a className="btn btn--ghost btn--download" href={RESUME_HREF} download>
             Download résumé
+            <svg className="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 4v10m0 0 4-4m-4 4-4-4M5 20h14"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </a>
           <a
             className="btn btn--ghost"

@@ -113,12 +113,21 @@ export default function Hero() {
                 Get in touch
               </a>
               <a
-                className="btn btn--ghost"
+                className="btn btn--ghost btn--download"
                 href={asset("/assets/Samrat_Alam_Resume.pdf")}
                 download
               >
                 Download CV
-                <span aria-hidden="true">↓</span>
+                <svg className="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 4v10m0 0 4-4m-4 4-4-4M5 20h14"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </a>
             </div>
           </div>

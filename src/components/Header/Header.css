@@ -109,6 +109,13 @@ body.nav-open { overflow: hidden; }
   transform: translateY(-1px);
   box-shadow: 0 12px 28px -24px var(--accent);
 }
+.header-link svg {
+  transition: transform var(--dur-fast) var(--ease);
+}
+.header-link:hover svg,
+.header-link:focus-visible svg {
+  transform: translateY(-1px) scale(1.04);
+}
 .header-link:active { transform: translateY(0) scale(0.98); }
 
 .theme-toggle {
@@ -173,13 +180,19 @@ body.nav-open { overflow: hidden; }
   display: block;
   width: 16px;
   height: 1.5px;
+  border-radius: 999px;
   background: var(--text-dim);
   transition: transform var(--dur-fast) var(--ease),
+              width var(--dur-fast) var(--ease),
               background var(--dur-fast) var(--ease),
               opacity var(--dur-fast) var(--ease);
 }
 .menu-toggle:hover span,
 .menu-toggle:focus-visible span { background: var(--accent); }
+.menu-toggle:hover span:nth-child(1),
+.menu-toggle:focus-visible span:nth-child(1) { width: 12px; }
+.menu-toggle:hover span:nth-child(3),
+.menu-toggle:focus-visible span:nth-child(3) { width: 20px; }
 .menu-toggle.is-open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
 .menu-toggle.is-open span:nth-child(2) { opacity: 0; }
 .menu-toggle.is-open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
