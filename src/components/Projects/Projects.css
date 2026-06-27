@@ -83,12 +83,15 @@
   border-bottom: 1px solid var(--text-muted);
   padding-bottom: 0.15rem;
   transition: color var(--dur-fast) var(--ease),
-              border-color var(--dur-fast) var(--ease);
+              border-color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
 }
 .project__link:hover {
   color: var(--accent);
   border-color: var(--accent);
+  transform: translateY(-1px);
 }
+.project__link:active { transform: translateY(0); }
 .project__link-arrow {
   display: inline-block;
   font-size: 0.95em;
@@ -138,6 +141,7 @@
   border-color: var(--accent);
   transform: translateY(-1px);
 }
+.projects__more-link:active { transform: translateY(0); }
 .projects__more-arrow {
   display: inline-block;
   font-size: 0.95em;

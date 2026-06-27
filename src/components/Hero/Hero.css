@@ -142,6 +142,7 @@
 }
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -154,19 +155,34 @@
               background var(--dur-fast) var(--ease),
               border-color var(--dur-fast) var(--ease),
               color var(--dur-fast) var(--ease),
-              filter var(--dur-fast) var(--ease);
+              filter var(--dur-fast) var(--ease),
+              box-shadow var(--dur-fast) var(--ease);
+}
+.btn span[aria-hidden="true"] {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease);
 }
 .btn--primary {
   background: var(--accent);
   color: var(--accent-ink);
   border-color: var(--accent);
 }
-.btn--primary:hover { transform: translateY(-1px); filter: brightness(1.06); }
+.btn--primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 16px 34px -26px var(--accent);
+}
 .btn--ghost {
   color: var(--text);
   background: transparent;
 }
-.btn--ghost:hover { border-color: var(--text-dim); }
+.btn--ghost:hover {
+  background: var(--surface);
+  border-color: var(--text-dim);
+  transform: translateY(-1px);
+}
+.btn:hover span[aria-hidden="true"] { transform: translateX(2px); }
+.btn:active { transform: translateY(0) scale(0.99); }
 
 .hero__portrait {
   justify-self: end;

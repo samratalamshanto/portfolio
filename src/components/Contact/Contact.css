@@ -27,12 +27,15 @@
   color: var(--text);
   transition: border-color var(--dur-fast) var(--ease),
               background var(--dur-fast) var(--ease),
-              transform var(--dur-fast) var(--ease);
+              transform var(--dur-fast) var(--ease),
+              box-shadow var(--dur-fast) var(--ease);
 }
 .contact__links a:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 16px 34px -30px var(--accent);
 }
+.contact__links a:active { transform: translateY(0); }
 .contact__links a > span:first-child {
   grid-column: 1 / 2;
   font-family: var(--ff-mono);
