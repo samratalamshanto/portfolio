@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../../contexts/ThemeContext.jsx";
 import { useActiveSection } from "../../hooks/useActiveSection.js";
 import sections from "../../data/sections.json";
@@ -24,6 +24,8 @@ const SECTION_IDS = sections.map((s) => s.key);
 export default function Header() {
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
+  const headerRef = useRef(null);
+  const menuButtonRef = useRef(null);
   const active = useActiveSection(SECTION_IDS);
 
   useEffect(() => {
@@ -32,8 +34,35 @@ export default function Header() {
     return () => window.removeEventListener("hashchange", close);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const closeMenu = ({ restoreFocus = false } = {}) => {
+      setOpen(false);
+      if (restoreFocus) menuButtonRef.current?.focus();
+    };
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") closeMenu({ restoreFocus: true });
+    };
+
+    const onPointerDown = (event) => {
+      if (!headerRef.current?.contains(event.target)) closeMenu();
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    document.body.classList.add("nav-open");
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.body.classList.remove("nav-open");
+    };
+  }, [open]);
+
   return (
-    <header className="site-header">
+    <header className="site-header" ref={headerRef}>
       <div className="container site-header__inner">
         <a href="#" className="brand" aria-label="Samrat Alam, home">
           <span className="brand__mark" aria-hidden="true">SA</span>
@@ -41,6 +70,7 @@ export default function Header() {
         </a>
 
         <nav
+          id="site-nav"
           className={`site-nav ${open ? "is-open" : ""}`}
           aria-label="Section navigation"
         >
@@ -117,10 +147,12 @@ export default function Header() {
           </button>
 
           <button
+            ref={menuButtonRef}
             type="button"
             className={`menu-toggle ${open ? "is-open" : ""}`}
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
+            aria-controls="site-nav"
             aria-label="Toggle menu"
           >
             <span /><span /><span />

@@ -14,6 +14,7 @@ function ProjectCard({ project, flip }) {
           width="800"
           height="500"
           loading="lazy"
+          decoding="async"
           onError={(e) => e.currentTarget.classList.add("img--missing")}
         />
       </div>

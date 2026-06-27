@@ -38,6 +38,8 @@ function Role({ role }) {
         alt=""
         width="64"
         height="64"
+        loading="lazy"
+        decoding="async"
         onError={(e) => e.currentTarget.classList.add("img--missing")}
       />
     </span>

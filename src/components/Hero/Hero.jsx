@@ -132,6 +132,7 @@ export default function Hero() {
               width="480"
               height="600"
               loading="eager"
+              decoding="async"
               fetchPriority="high"
               onError={(e) => e.currentTarget.classList.add("img--missing")}
             />

@@ -14,6 +14,7 @@ function EducationCard({ entry }) {
           width="140"
           height="140"
           loading="lazy"
+          decoding="async"
           onError={(e) => e.currentTarget.classList.add("img--missing")}
         />
       </div>

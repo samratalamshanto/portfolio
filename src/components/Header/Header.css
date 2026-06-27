@@ -6,6 +6,7 @@
   background: color-mix(in oklab, var(--bg) 80%, transparent);
   border-bottom: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
 }
+body.nav-open { overflow: hidden; }
 
 .site-header__inner {
   display: flex;
@@ -157,9 +158,15 @@
     padding: 1.5rem clamp(1.25rem, 1rem + 2vw, 2.5rem) 2rem;
     gap: 1rem;
     transform: translateY(-110%);
+    visibility: hidden;
+    pointer-events: none;
     transition: transform var(--dur) var(--ease);
   }
-  .site-nav.is-open { transform: translateY(0); }
+  .site-nav.is-open {
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
   .site-nav a { font-size: 1rem; }
   .site-nav__cta { align-self: flex-start; }
   .menu-toggle { display: inline-flex; }
